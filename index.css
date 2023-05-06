@@ -1,0 +1,122 @@
+body {
+    background-color: white;
+    color:black;
+}
+.header {
+    text-align: center;
+}
+
+.sheader {
+    text-align: center;
+    margin-top: -1rem;
+}
+
+.table {
+    width: 100%;
+    font-size: 30px;
+}
+
+.input {
+    width: 650px;
+    height: 25px;
+    font-size: 25px;
+}
+
+.btnnext {
+    width: 90px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.captable {
+    text-align: center;
+}
+
+.nowidth {
+    height: 15px;
+    width: 33px;
+}
+
+.nhmwidth {
+    height: 15px;
+    width: 200px;
+}
+
+.rthwidth {
+    height: 15px;
+    width: 140px;
+}
+
+.agewidth {
+    height: 15px;
+    width: 35px;
+}
+
+.sexwidth {
+    height: 15px;
+    width: 25px;
+}
+
+.bdwidth {
+    height: 15px;
+    width: 90px;
+}
+
+.cswidth {
+    height: 15px;
+    width: 40px;
+}
+
+.occwidth {
+    height: 15px;
+    width: 120px;
+}
+
+.oswidth {
+    height: 15px;
+    width: 84px;
+}
+
+.relwidth {
+    height: 15px;
+    width: 90px;
+}
+
+.footwidth {
+    
+    width: 100%;
+}
+
+.legend {
+    width: 97.8%;
+    font-size: 18px;
+}
+
+.radios {
+    margin-left: 67px;
+    font-size: 20px;
+    margin-top: -23px;
+}
+
+.radtable {
+    width: 50%;
+}
+
+input[type="radio"] {
+    transform: scale(1.5);
+    margin-right: 16px;
+}
+
+.asize {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.A4 {
+    width: 20px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 16px;
+}
