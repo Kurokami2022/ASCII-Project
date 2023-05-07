@@ -125,6 +125,7 @@
         <hr>
         <table border = "1" class="captable" id="captable">
             <h5>Family Structure, Characteristics and Dynamic/Relation Patterns</h5>
+            <thead>
             <tr>
                 <th>No.</th>
                 <th>Name of Household Member</th>
@@ -139,23 +140,26 @@
                 <th>Religion</th>
                 <th>Add/Delete</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
-                <td><input type="text" class="nowidth"></td>
-                <td><input type="text" class="nhmwidth"></td>
-                <td><input type="text" class="rthwidth"></td>
-                <td><input type="text" class="agewidth"></td>
-                <td><input type="text" class="sexwidth"></td>
-                <td><input type="text" class="bdwidth"></td>
-                <td><input type="text" class="cswidth"></td>
-                <td><input type="text" class="occwidth"></td>
-                <td><input type="text" class="oswidth"></td>
-                <td><input type="text" class="heawidth"></td>
-                <td><input type="text" class="relwidth"></td>
+                <td><input type="text" class="nowidth" id="No1" value="1" disabled></td>
+                <td><input type="text" class="nhmwidth" id="nhm1"></td>
+                <td><input type="text" class="rthwidth" id="rth1"></td>
+                <td><input type="text" class="agewidth" id="age1"></td>
+                <td><input type="text" class="sexwidth" id="sex1"></td>
+                <td><input type="text" class="bdwidth" id="bday1"></td>
+                <td><input type="text" class="cswidth" id="cs1"></td>
+                <td><input type="text" class="occwidth" id="occ1"></td>
+                <td><input type="text" class="oswidth" id="os1"></td>
+                <td><input type="text" class="heawidth" id="hea1"></td>
+                <td><input type="text" class="relwidth" id="rel1"></td>
                 <td>
                     <input type="button" value="Add" onclick="addnew()">
                     <input type='button' value='Delete' onclick='deleteit()'>
                 </td>
             </tr>
+            </tbody>
             <table border="1" class="legend">
                 <tr>
                     <td>
