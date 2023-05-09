@@ -60,6 +60,9 @@ function btnbtn() {
 	var dbnh = document.getElementById('dbnh').value;
 	var faci = document.getElementById('faci').value;
 	var trans = document.getElementById('trans').value;
+	var a1 = document.getElementsByName('A.1');
+	var a2 = document.getElementsByName('A.2');
+	var a21 = document.getElementsByName('A.2.1');
     
 
 	var db = new sqlite3.Database("./Databases/"  + head + ".db");
@@ -190,6 +193,29 @@ function btnbtn() {
 		  }
 		}
 	); 
+
+	for(var i = 0; i < a1.length; i++){
+		if(a1[i].checked){
+			console.log(a1[i].value)
+		}
+	}
+
+	for(var i = 0; i < a2.length; i++){
+		if(a2[i].checked){
+			console.log(a2[i].value);
+		}
+		if(a2[i].value == "Yes"){
+			for(var b = 0; b < a21.length; b++){
+				if(a21[b].checked){
+					console.log(a21[b].value);
+				}
+				if(a21[b].value == "others"){
+					var others = document.getElementById('others').value;
+					console.log(others);
+				}	
+			}
+		}
+	}
 }
 
   function addnew1() { 
