@@ -240,7 +240,136 @@ function deleteit1(){
 				table.deleteRow(rowCount - 1);
 			}
 }
-  
+
+function addnew2() { 
+    var table = document.getElementById('mfptable');
+    var row = table.insertRow(-1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		cell1.innerHTML = "<input type='text' >";
+		cell2.innerHTML = "<input type='text' >";
+		cell3.innerHTML = "<input type='radio'>Yes &nbsp; <input type='radio'>No";
+		cell4.innerHTML = "<input type='text' >";
+		cell5.innerHTML = "<input type='text' >";
+}
+
+function deleteit2(){
+    var table = document.getElementById("mfptable");
+			var rowCount = table.rows.length;
+			if (rowCount > 2) {
+				table.deleteRow(rowCount - 1);
+			}
+}
+
+function addnew3() { 
+    var table = document.getElementById('istagtable');
+    var row = table.insertRow(-1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		var cell6 = row.insertCell(5);
+		var cell7 = row.insertCell(6);
+		var cell8 = row.insertCell(7);
+		var cell9 = row.insertCell(8);
+		var cell10 = row.insertCell(9);
+		cell1.innerHTML = "<input type='text' >";
+		cell2.innerHTML = "<input type='text' >";
+		cell3.innerHTML = "<input type='text' >";
+		cell4.innerHTML = "<input type='text' >";
+		cell5.innerHTML = "<input type='checkbox' >1<input type='checkbox' >2<input type='checkbox' >3";
+		cell6.innerHTML = "<input type='checkbox' >1<input type='checkbox' >2<input type='checkbox' >3";
+		cell7.innerHTML = "<input type='checkbox' >1<input type='checkbox' >2<input type='checkbox' >3";
+		cell8.innerHTML = "<input type='text' >";
+		cell9.innerHTML = "<input type='checkbox' >1<input type='checkbox' >2";
+		cell10.innerHTML = "<input type='checkbox' >Inc<input type='checkbox' >CIC<input type='checkbox' >FIC";
+
+}
+
+function deleteit3(){
+    var table = document.getElementById("istagtable");
+			var rowCount = table.rows.length;
+			if (rowCount > 2) {
+				table.deleteRow(rowCount - 1);
+			}
+}
+
+function addnew4() { 
+    var table = document.getElementById('mctable');
+    var row = table.insertRow(-1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		var cell6 = row.insertCell(5);
+		cell1.innerHTML = "<input type='text' >";
+		cell2.innerHTML = "<input type='text' >";
+		cell3.innerHTML = "<input type='text' >";
+		cell4.innerHTML = "<input type='text' >";
+		cell5.innerHTML = "<input type='radio' >Yes<input type='radio' >No";
+		cell6.innerHTML = "<input type='checkbox' >TT1<input type='checkbox' >TT2<input type='checkbox' >TT3<input type='checkbox' >TT4<input type='checkbox' >TT5";
+
+}
+
+function deleteit4(){
+    var table = document.getElementById("mctable");
+			var rowCount = table.rows.length;
+			if (rowCount > 2) {
+				table.deleteRow(rowCount - 1);
+			}
+}
+
+function addnew5() { 
+    var table = document.getElementById('morbtable');
+    var row = table.insertRow(-1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		var cell6 = row.insertCell(5);
+		cell1.innerHTML = "<input type='text' >";
+		cell2.innerHTML = "<input type='text' >";
+		cell3.innerHTML = "<input type='text' >";
+		cell4.innerHTML = "<input type='text' >";
+		cell5.innerHTML = "<input type='text' >";
+		cell6.innerHTML = "<input type='text' >";
+
+}
+
+function deleteit5(){
+    var table = document.getElementById("morbtable");
+			var rowCount = table.rows.length;
+			if (rowCount > 2) {
+				table.deleteRow(rowCount - 1);
+			}
+}
+
+function addnew6() { 
+    var table = document.getElementById('morttable');
+    var row = table.insertRow(-1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		cell1.innerHTML = "<input type='text' >";
+		cell2.innerHTML = "<input type='text' >";
+		cell3.innerHTML = "<input type='text' >";
+		cell4.innerHTML = "<input type='text' >";
+}
+
+function deleteit6(){
+    var table = document.getElementById("morttable");
+			var rowCount = table.rows.length;
+			if (rowCount > 2) {
+				table.deleteRow(rowCount - 1);
+			}
+}
   
   
 

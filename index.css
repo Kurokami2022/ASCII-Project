@@ -89,7 +89,7 @@ body {
 }
 
 .legend {
-    width: 97.8%;
+    width: 100%;
     font-size: 18px;
 }
 
@@ -100,7 +100,7 @@ body {
 }
 
 .radtable {
-    width: 50%;
+    width: 60%;
 }
 
 input[type="radio"] {
@@ -120,4 +120,20 @@ input[type="radio"] {
 input[type="checkbox"] {
     transform: scale(1.5);
     margin-right: 16px;
+}
+
+#mfptable {
+    width: 100%;
+}
+
+#mfptable input[type="text"] {
+    width: 90%;
+}
+
+#istagtable {
+    width: 100%;
+}
+
+#istagtable input[type="text"]{
+    width: 80%;
 }
