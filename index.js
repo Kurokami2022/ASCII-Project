@@ -60,9 +60,7 @@ function btnbtn() {
 	var dbnh = document.getElementById('dbnh').value;
 	var faci = document.getElementById('faci').value;
 	var trans = document.getElementById('trans').value;
-	var a1 = document.getElementsByName('A.1');
-	var a2 = document.getElementsByName('A.2');
-	var a21 = document.getElementsByName('A.2.1');
+	
     
 
 	var db = new sqlite3.Database("./Databases/"  + head + ".db");
@@ -192,30 +190,175 @@ function btnbtn() {
 			}
 		  }
 		}
-	); 
+	);
+	
+	var a1 = document.getElementsByName('A.1');
+	var a2 = document.getElementsByName('A.2');
+	var a21 = document.getElementsByName('A.2.1');
+	var a3 = document.getElementsByName('A.3');
+	var a4food = document.getElementById('food').value;
+	var a4health = document.getElementById('health').value;
+	var a4houserent = document.getElementById('houserent').value;
+	var a4education = document.getElementById('education').value;
+	var a4electric = document.getElementById('electricbill').value;
+	var a4clothing = document.getElementById('clothing').value;
+	var a4waterbill = document.getElementById('waterbill').value;
+	var a4others = document.getElementById('a4others').value;
+	var a5 = document.getElementsByName('A.5');
+	var a51 = document.getElementsByName('A.5.1');
+	var b1 = document.querySelectorAll('input[type="checkbox"][name="B.1"]');
+	var b2 = document.querySelectorAll('input[type="checkbox"][name="B.2"]');
+	var b3 = document.querySelectorAll('input[type="checkbox"][name="B.3"]');
+	var b4 = document.querySelectorAll('input[type="checkbox"][name="B.4"]');
+	var A1 = "";
+	var A2 = "";
+	var A3 = "";
+	var A4 = `${a4food} food \n
+			  ${a4health} health \n
+			  ${a4houserent} house rent \n
+			  ${a4education} education \n
+			  ${a4electric} electric bill \n
+			  ${a4clothing} clothing \n
+			  ${a4waterbill} waterbill \n
+			  ${a4others}`;
+	var A5 = "";
+	var B1 = "";
+	var B2 = "";
+	var B3 = "";
+	var B4 = "";
 
 	for(var i = 0; i < a1.length; i++){
 		if(a1[i].checked){
-			console.log(a1[i].value)
+			A1 += a1[i].value;
 		}
 	}
 
 	for(var i = 0; i < a2.length; i++){
 		if(a2[i].checked){
-			console.log(a2[i].value);
-		}
 		if(a2[i].value == "Yes"){
 			for(var b = 0; b < a21.length; b++){
 				if(a21[b].checked){
-					console.log(a21[b].value);
+					if(a21[b].value != "others"){
+						A2 += a21[b].value;
+					}
+					else if(a21[b].value == "others"){
+						var others = document.getElementById('others').value;
+						A2 += others;
+					}
 				}
-				if(a21[b].value == "others"){
-					var others = document.getElementById('others').value;
-					console.log(others);
-				}	
+			}
+		}
+			else if(a2[i].value == "No"){
+				A2 += a2[i].value;
 			}
 		}
 	}
+
+	for(var i = 0; i < a3.length; i++){
+		if(a3[i].checked){
+			A3 += a3[i].value;
+		}
+	}
+
+	for(var i = 0; i < a5.length; i++){
+		if(a5[i].checked){
+		if(a5[i].value == "Yes"){
+			for(var b = 0; b < a51.length; b++){
+				if(a51[b].checked){
+					if(a51[b].value != "others"){
+						A5 += a51[b].value;
+					}
+					else if(a51[b].value == "others"){
+						var others = document.getElementById('a5others').value;
+						A5 += others;
+					}
+				}
+			}
+		}
+			else if(a5[i].value == "No"){
+				A5 += a5[i].value;
+			}
+		}
+	}
+
+	for(var i = 0; i < b1.length; i++){
+		if(b1[i].checked){
+			if(b1[i].value != "others"){
+			B1 += b1[i].value + " ";
+		} 
+		if(b1[i].value == "others"){
+			var others = document.getElementById('b1others').value
+			B1 += b1[i].value + " " + others;
+		}
+		}
+	}
+
+	for(var i = 0; i < b2.length; i++){
+		if(b2[i].checked){
+			if(b2[i].value != "others"){
+			B2 += b2[i].value + " ";
+		} 
+		if(b2[i].value == "others"){
+			var others = document.getElementById('b2others').value
+			B2 += b2[i].value + " " + others;
+		}
+		}
+	}
+
+	for(var i = 0; i < b3.length; i++){
+		if(b3[i].checked){
+			if(b3[i].value != "others"){
+			B3 += b3[i].value + " ";
+		} 
+		if(b3[i].value == "others"){
+			var others = document.getElementById('b3others').value
+			B3 += b3[i].value + " " + others;
+		}
+		}
+	}
+
+	for(var i = 0; i < b4.length; i++){
+		if(b4[i].checked){
+			if(b4[i].value != "others"){
+			B4 += b4[i].value + " ";
+		} 
+		if(b4[i].value == "others"){
+			var others = document.getElementById('b4others').value
+			B4 += b4[i].value + " " + others;
+		}
+		}
+	}
+
+	db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_community_as_a_social_System" (
+		  A1 TEXT,
+		  A2 TEXT,
+		  A3 TEXT,
+		  A4 TEXT,
+		  A5 TEXT,
+		  B1 TEXT,
+		  B2 TEXT,
+		  B3 TEXT,
+		  B4 TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_community_as_a_social_System`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_community_as_a_social_System`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			db.run(`INSERT INTO "${head}_community_as_a_social_System" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
+			[A1, A2, A3, A4, A5, B1, B2, B3, B4], function (err) {
+			  if (err) {
+				console.log(err);
+			  } else {
+				console.log('success');
+			  }
+			});
+		  }
+		}
+	  );
+
 }
 
   function addnew1() { 
