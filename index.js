@@ -60,9 +60,8 @@ function btnbtn() {
 	var dbnh = document.getElementById('dbnh').value;
 	var faci = document.getElementById('faci').value;
 	var trans = document.getElementById('trans').value;
+	var natres = document.getElementById('natres').value;
 	
-    
-
 	var db = new sqlite3.Database("./Databases/"  + head + ".db");
 	db.run(
 	  `CREATE TABLE IF NOT EXISTS "${head}_info" (
@@ -125,6 +124,7 @@ function btnbtn() {
 		}
 	  }
 	);
+	
 	db.run(
 		`CREATE TABLE IF NOT EXISTS "${head}_Family_Structure" (
 		  No TEXT,
@@ -210,6 +210,27 @@ function btnbtn() {
 	var b2 = document.querySelectorAll('input[type="checkbox"][name="B.2"]');
 	var b3 = document.querySelectorAll('input[type="checkbox"][name="B.3"]');
 	var b4 = document.querySelectorAll('input[type="checkbox"][name="B.4"]');
+	var c1 = document.getElementsByName('C.1');
+	var c2 = document.getElementsByName('C.2');
+	var c3 = document.getElementsByName('C.3');
+	var c4 = document.getElementsByName('C.4');
+	var c5 = document.getElementsByName('C.5');
+	var c6 = document.getElementsByName('C.6');
+	var c71 = document.getElementsByName('C.7.1');
+	var c7 = document.querySelectorAll('input[type="checkbox"][name="C.7"]');
+	var c8 = document.getElementsByName('C.8');
+	var c81 = document.getElementsByName('C.8.1');
+	var c9 = document.getElementsByName('C.9');
+	var c91 = document.getElementsByName('C.9.1');
+	var c92 = document.getElementsByName('C.9.2');
+	var c93 = document.querySelectorAll('input[type="checkbox"][name="C.9.3"]');
+	var c10 = document.querySelectorAll('input[type="checkbox"][name="C.10"]');
+	var c101 = document.getElementsByName('C.10.1');
+	var c102 = document.getElementsByName('C.10.2');
+	var c103 = document.getElementsByName('C.10.3');
+	var c12 = document.getElementsByName('C.12');
+	var c13 = document.querySelectorAll('input[type="checkbox"][name="C.13"]');
+	var c131 = document.querySelectorAll('input[type="checkbox"][name="C.13.1"]');
 	var A1 = "";
 	var A2 = "";
 	var A3 = "";
@@ -226,6 +247,27 @@ function btnbtn() {
 	var B2 = "";
 	var B3 = "";
 	var B4 = "";
+	var C1 = "";
+	var C2 = "";
+	var C3 = "";
+	var C4 = "";
+	var C5 = "";
+	var C6 = "";
+	var C7 = "";
+	var C7level = "";
+	var C8 = "";
+	var C8condition = "";
+	var C9segregation = "";
+	var C9used = "";
+	var C9container = "";
+	var C9method = "";
+	var C10toilet = "";
+	var C10level = "";
+	var C10ownership = "";
+	var C10sanitary = "";
+	var C12 = "";
+	var C13 = "";
+	var C131 = "";
 
 	for(var i = 0; i < a1.length; i++){
 		if(a1[i].checked){
@@ -287,7 +329,7 @@ function btnbtn() {
 			B1 += b1[i].value + " ";
 		} 
 		if(b1[i].value == "others"){
-			var others = document.getElementById('b1others').value
+			var others = document.getElementById('b1others').value;
 			B1 += b1[i].value + " " + others;
 		}
 		}
@@ -299,7 +341,7 @@ function btnbtn() {
 			B2 += b2[i].value + " ";
 		} 
 		if(b2[i].value == "others"){
-			var others = document.getElementById('b2others').value
+			var others = document.getElementById('b2others').value;
 			B2 += b2[i].value + " " + others;
 		}
 		}
@@ -311,7 +353,7 @@ function btnbtn() {
 			B3 += b3[i].value + " ";
 		} 
 		if(b3[i].value == "others"){
-			var others = document.getElementById('b3others').value
+			var others = document.getElementById('b3others').value;
 			B3 += b3[i].value + " " + others;
 		}
 		}
@@ -323,9 +365,176 @@ function btnbtn() {
 			B4 += b4[i].value + " ";
 		} 
 		if(b4[i].value == "others"){
-			var others = document.getElementById('b4others').value
+			var others = document.getElementById('b4others').value;
 			B4 += b4[i].value + " " + others;
 		}
+		}
+	}
+
+	for(var i = 0; i < c1.length; i++){
+		if(c1[i].checked){
+			C1 += c1[i].value;
+		}
+	}
+
+	for(var i = 0; i < c2.length; i++){
+		if(c2[i].checked){
+			C2 += c2[i].value;
+		}
+	}
+
+	for(var i = 0; i < c3.length; i++){
+		if(c3[i].checked){
+			C3 += c3[i].value;
+		}
+	}
+
+	for(var i = 0; i < c4.length; i++){
+		if(c4[i].checked){
+			C4 += c4[i].value;
+		}
+	}
+
+	for(var i = 0; i < c5.length; i++){
+		if(c5[i].checked){
+			C5 += c5[i].value;
+		}
+	}
+
+	for(var i = 0; i < c6.length; i++){
+		if(c6[i].checked){
+			if(c6[i].value != "others"){
+			C6 += c6[i].value + " ";
+		} 
+		if(c6[i].value == "others"){
+			var others = document.getElementById('c6others').value;
+			C6 += c6[i].value + " " + others;
+		}
+		}
+	}
+
+	for(var i = 0; i < c7.length; i++){
+		if(c7[i].checked){
+			if(c7[i].value != "others"){
+			C7 += c7[i].value + " ";
+		} 
+		if(c7[i].value == "others"){
+			var others = document.getElementById('c7others').value;
+			C7 += c7[i].value + " " + others;
+		}
+		}
+	}
+
+	for(var i = 0; i < c71.length; i++){
+		if(c71[i].checked){
+			C7level += c71[i].value;
+		}
+	}
+
+	for(var i = 0; i < c8.length; i++){
+		if(c8[i].checked){
+			C8 += c8[i].value;
+		}
+	}
+
+	for(var i = 0; i < c81.length; i++){
+		if(c81[i].checked){
+			C8condition += c81[i].value;
+		}
+	}
+
+	for(var i = 0; i < c9.length; i++){
+		if(c9[i].checked){
+			C9segregation += c9[i].value;
+		}
+	}
+
+	for(var i = 0; i < c91.length; i++){
+		if(c91[i].checked){
+			C9used += c91[i].value;
+		}
+	}
+
+	for(var i = 0; i < c92.length; i++){
+		if(c92[i].checked){
+			C9container += c92[i].value;
+		}
+	}
+
+	for(var i = 0; i < c93.length; i++){
+		if(c93[i].checked){
+			if(c93[i].value != "others"){
+			C9method += c93[i].value + " ";
+		} 
+		if(c93[i].value == "others"){
+			var others = document.getElementById('c9others').value;
+			C9method += c93[i].value + " " + others;
+		}
+		}
+	}
+
+	for(var i = 0; i < c10.length; i++){
+		if(c10[i].checked){
+			if(c10[i].value != "others"){
+			C10toilet += c10[i].value + " ";
+		} 
+		if(c10[i].value == "others"){
+			var others = document.getElementById('c10others').value;
+			C10toilet += c10[i].value + " " + others;
+		}
+		}
+	}
+
+	for(var i = 0; i < c101.length; i++){
+		if(c101[i].checked){
+			C10level += c101[i].value;
+		}
+	}
+
+	for(var i = 0; i < c102.length; i++){
+		if(c102[i].checked){
+			C10ownership += c102[i].value;
+		}
+	}
+
+	var C10distance = document.getElementById('c10distance').value;
+
+	for(var i = 0; i < c103.length; i++){
+		if(c103[i].checked){
+			C10sanitary += c103[i].value;
+		}
+	}
+
+	for(var i = 0; i < c12.length; i++){
+		if(c12[i].checked){
+			if(c12[i].value == "specify"){
+				var specify = document.getElementById('c12specify').value;
+				C12 += specify;
+			} else if(c12[i].value == "None"){
+				C12 += "None";
+			}
+		}
+	}
+
+	for(var i = 0; i < c13.length; i++){
+		if(c13[i].checked){
+			if(c13[i].value == "others"){
+				var others = document.getElementById('c13others').value;
+				C13 +=  c13[i].value + " " + others;
+			} else if(c13[i].value != "others"){
+				C13 += c13[i].value + " ";
+			}
+		}
+	}
+
+	for(var i = 0; i < c131.length; i++){
+		if(c131[i].checked){
+			if(c131[i].value == "others"){
+				var others = document.getElementById('c131others').value;
+				C131 += c131[i].value + " " + others;
+			} else if(c131[i].value != "others"){
+				C131 += c131[i].value + " ";
+			}
 		}
 	}
 
@@ -339,7 +548,29 @@ function btnbtn() {
 		  B1 TEXT,
 		  B2 TEXT,
 		  B3 TEXT,
-		  B4 TEXT
+		  B4 TEXT,
+		  C1 TEXT,
+		  C2 TEXT,
+		  C3 TEXT,
+		  C4 TEXT,
+		  C5 TEXT,
+		  C6 TEXT,
+		  C7 TEXT,
+		  C7_Level TEXT,
+		  C8 TEXT,
+		  C8_Condition TEXT,
+		  C9_Segregation TEXT,
+		  C9_Container_Used TEXT,
+		  C9_Container TEXT,
+		  C9_Method_Of_Disposal TEXT,
+		  C10_Toilet_Facilities TEXT,
+		  C10_Level TEXT,
+		  C10_Ownership TEXT,
+		  C10_Distance_to_Toilet_Facility TEXT,
+		  C10_Sanitary_Condition TEXT,
+		  C12 TEXT,
+		  C13_Presence_of_Vectors_and_Rodents TEXT,
+		  C13_Ways_in_Controlling_Vectors TEX
 		)`,
 		function (err) {
 		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_community_as_a_social_System`) || err.message.includes(`database ${head}.db already exists`))) {
@@ -347,8 +578,39 @@ function btnbtn() {
 		  } else if (err) {
 			console.log(err);
 		  } else {
-			db.run(`INSERT INTO "${head}_community_as_a_social_System" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
-			[A1, A2, A3, A4, A5, B1, B2, B3, B4], function (err) {
+			db.run(`INSERT INTO "${head}_community_as_a_social_System" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
+			[	A1, 
+				A2, 
+				A3, 
+				A4, 
+				A5, 
+				B1, 
+				B2, 
+				B3, 
+				B4, 
+				C1, 
+				C2, 
+				C3, 
+				C4, 
+				C5, 
+				C6, 
+				C7, 
+				C7level, 
+				C8, 
+				C8condition, 
+				C9segregation, 
+				C9used, 
+				C9container, 
+				C9method,
+				C10toilet,
+				C10level,
+				C10ownership,
+				C10distance,
+				C10sanitary,
+				C12,
+				C13,
+				C131
+			], function (err) {
 			  if (err) {
 				console.log(err);
 			  } else {
@@ -359,21 +621,79 @@ function btnbtn() {
 		}
 	  );
 
+	  db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Domestic_Animals" (
+		  Kind TEXT,
+		  Number TEXT,
+		  Where_Kept TEXT,
+		  With_Vaccination TEXT,
+		  Without_Vaccination TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Domestic_Animals already exists`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Domestic_Animals already exists`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			var table = document.getElementById('datable');
+			if (!table) {
+			  console.log('Table not found');
+			  return;
+			}
+			var table = document.getElementById("datable");
+			if (table) {
+			  var tbody = table.getElementsByTagName('tbody')[0];
+			  var promises = [];
+			  for (var i = 1; i < tbody.rows.length+1; i++) {
+				var kind = document.getElementById("kind"+`${i}`).value;
+				var number = document.getElementById("number"+`${i}`).value;
+				var where = document.getElementById("where"+`${i}`).value;
+				var vaccine = document.getElementById("vaccine"+`${i}`).value;
+				var novaccine = document.getElementById("novaccine"+`${i}`).value;
+				var promise = new Promise(function(resolve, reject) {
+				  db.run(`INSERT INTO "${head}_Domestic_Animals" VALUES (?, ?, ?, ?, ?)`, 
+					[kind, number, where, vaccine, novaccine], function (err) {
+					  if (err) {
+						console.log(err);
+						reject(err);
+					  } else {
+						console.log('success');
+						resolve();
+					  }
+					});
+				});
+				promises.push(promise);
+			  }
+			  Promise.all(promises)
+				.then(function() {
+				  console.log("All data inserted successfully");
+				})
+				.catch(function(err) {
+				  console.log("Error inserting data:", err);
+				});
+			}
+		  }
+		}
+	);
 }
 
   function addnew1() { 
-    var table = document.getElementById('datable');
-    var row = table.insertRow(-1);
-		var cell1 = row.insertCell(0);
-		var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
-		var cell4 = row.insertCell(3);
-		var cell5 = row.insertCell(4);
-		cell1.innerHTML = "<input type='text' >";
-		cell2.innerHTML = "<input type='text' >";
-		cell3.innerHTML = "<input type='text' >";
-		cell4.innerHTML = "<input type='text' >";
-		cell5.innerHTML = "<input type='text' >";
+    var table = document.getElementById("datable");
+	if (table) {
+	  var tbody = table.getElementsByTagName('tbody')[0];
+	  var row = tbody.insertRow(-1);
+	  var cell1 = row.insertCell(0);
+	  var cell2 = row.insertCell(1);
+	  var cell3 = row.insertCell(2);
+	  var cell4 = row.insertCell(3);
+	  var cell5 = row.insertCell(4);
+	  var rowCount = tbody.rows.length;
+	  cell1.innerHTML = `<input type='text' id='kind${rowCount}'>`;
+	  cell2.innerHTML = `<input type='text' id='number${rowCount}'>`;
+	  cell3.innerHTML = `<input type='text' id='where${rowCount}'>`;
+	  cell4.innerHTML = `<input type='text' id='vaccine${rowCount}'>`;
+	  cell5.innerHTML = `<input type='text' id='novaccine${rowCount}'>`;
+	}
 }
 
 function deleteit1(){
