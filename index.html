@@ -645,38 +645,38 @@
             <hr>
             <h2 class="asize">A. Community Health Programs</h2><br>
             <div class="radios">
-                <table  class="radtable">
+                <table class="radtable" id="chptable">
                     <tr>
-                        <td>
-                            <br>
-                            <label for="">Free Consultation</label><br>                
-                            <label for="">Immunization</label><br>                
-                            <label for="">Family Planning</label><br>                
-                            <label for="">Pre-natal Check Up</label><br>                
-                            <label for="">Well-baby Clinic</label><br>                
-                            <label for="">Others, specify: </label>
-                            <input type="text">              
-                        </td>
-                        <td style="text-align: center;">
-                            <label for="">Aware</label><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox">
-                        </td>
-                        <td style="text-align: center;">
-                            <label for="">Utilizes</label><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox">
-                        </td>
+                      <td>
+                        <br>
+                        <label for="free-consultation">Free Consultation</label><br>
+                        <label for="immunization">Immunization</label><br>
+                        <label for="family-planning">Family Planning</label><br>
+                        <label for="pre-natal-check-up">Pre-natal Check Up</label><br>
+                        <label for="well-baby-clinic">Well-baby Clinic</label><br>
+                        <label for="others">Others, specify: </label>
+                        <input type="text" name="others" id="Aothers">
+                      </td>
+                      <td style="text-align: center;">
+                        <label for="aware">Aware</label><br>
+                        <input type="checkbox" name="aware" id="free-consultation-aware"><br>
+                        <input type="checkbox" name="aware" id="immunization-aware"><br>
+                        <input type="checkbox" name="aware" id="family-planning-aware"><br>
+                        <input type="checkbox" name="aware" id="pre-natal-check-up-aware"><br>
+                        <input type="checkbox" name="aware" id="well-baby-clinic-aware"><br>
+                        <input type="checkbox" name="aware" id="others-aware">
+                      </td>
+                      <td style="text-align: center;">
+                        <label for="utilizes">Utilizes</label><br>
+                        <input type="checkbox" name="utilizes" id="free-consultation-utilizes"><br>
+                        <input type="checkbox" name="utilizes" id="immunization-utilizes"><br>
+                        <input type="checkbox" name="utilizes" id="family-planning-utilizes"><br>
+                        <input type="checkbox" name="utilizes" id="pre-natal-check-up-utilizes"><br>
+                        <input type="checkbox" name="utilizes" id="well-baby-clinic-utilizes"><br>
+                        <input type="checkbox" name="utilizes" id="others-utilizes">
+                      </td>
                     </tr>
-                </table>
+                  </table>
             </div>
             <h2 class="asize">B. Family Health Practices</h2><br>
             <div class="radios">
@@ -702,57 +702,57 @@
                         </td>
                         <td style="text-align: center;">
                             <label for="" style="font-weight: bold;">Practiced</label><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox">
+                            <input type="radio" name="Ba" value="Practiced"><br>
+                            <input type="radio" name="Bb" value="Practiced"><br>
+                            <input type="radio" name="Bc" value="Practiced"><br>
+                            <input type="radio" name="Bd" value="Practiced"><br>
+                            <input type="radio" name="Be" value="Practiced"><br>
+                            <input type="radio" name="Bf" value="Practiced"><br>
+                            <input type="radio" name="Bg" value="Practiced"><br>
+                            <input type="radio" name="Bh" value="Practiced"><br>
+                            <input type="radio" name="Bi" value="Practiced"><br>
+                            <input type="radio" name="Bj" value="Practiced"><br>
+                            <input type="radio" name="Bk" value="Practiced"><br>
+                            <input type="radio" name="Bl" value="Practiced"><br>
+                            <input type="radio" name="Bm" value="Practiced"><br>
+                            <input type="radio" name="Bn" value="Practiced"><br>
+                            <input type="radio" name="Bo" value="Practiced">
                         </td>
                         <td style="text-align: center;">
                             <label for="" style="font-weight: bold;">Not Practiced</label><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox"><br>
-                            <input type="checkbox">
+                            <input type="radio" name="Ba" value="Not Practiced"><br>
+                            <input type="radio" name="Bb" value="Not Practiced"><br>
+                            <input type="radio" name="Bc" value="Not Practiced"><br>
+                            <input type="radio" name="Bd" value="Not Practiced"><br>
+                            <input type="radio" name="Be" value="Not Practiced"><br>
+                            <input type="radio" name="Bf" value="Not Practiced"><br>
+                            <input type="radio" name="Bg" value="Not Practiced"><br>
+                            <input type="radio" name="Bh" value="Not Practiced"><br>
+                            <input type="radio" name="Bi" value="Not Practiced"><br>
+                            <input type="radio" name="Bj" value="Not Practiced"><br>
+                            <input type="radio" name="Bk" value="Not Practiced"><br>
+                            <input type="radio" name="Bl" value="Not Practiced"><br>
+                            <input type="radio" name="Bm" value="Not Practiced"><br>
+                            <input type="radio" name="Bn" value="Not Practiced"><br>
+                            <input type="radio" name="Bo" value="Not Practiced">
                         </td>
                         <td style="text-align: center;">
                             <label for="" style="font-weight: bold;">Frequency/Remarks</label><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text">
+                            <input type="text" id="baremark"><br>
+                            <input type="text" id="bbremark"><br>
+                            <input type="text" id="bcremark"><br>
+                            <input type="text" id="bdremark"><br>
+                            <input type="text" id="beremark"><br>
+                            <input type="text" id="bfremark"><br>
+                            <input type="text" id="bgremark"><br>
+                            <input type="text" id="bhremark"><br>
+                            <input type="text" id="biremark"><br>
+                            <input type="text" id="bjremark"><br>
+                            <input type="text" id="bkremark"><br>
+                            <input type="text" id="blremark"><br>
+                            <input type="text" id="bmremark"><br>
+                            <input type="text" id="bnremark"><br>
+                            <input type="text" id="boremark">
                         </td>
                     </tr>
                 </table>

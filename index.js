@@ -570,7 +570,7 @@ function btnbtn() {
 		  C10_Sanitary_Condition TEXT,
 		  C12 TEXT,
 		  C13_Presence_of_Vectors_and_Rodents TEXT,
-		  C13_Ways_in_Controlling_Vectors TEX
+		  C13_Ways_in_Controlling_Vectors TEXT
 		)`,
 		function (err) {
 		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_community_as_a_social_System`) || err.message.includes(`database ${head}.db already exists`))) {
@@ -675,6 +675,214 @@ function btnbtn() {
 		  }
 		}
 	);
+	var Aothers = document.getElementById('Aothers').value;
+	const healthPrograms = [
+		{ name: 'Free Consultation', awareId: 'free-consultation-aware', utilizesId: 'free-consultation-utilizes' },
+		{ name: 'Immunization', awareId: 'immunization-aware', utilizesId: 'immunization-utilizes' },
+		{ name: 'Family Planning', awareId: 'family-planning-aware', utilizesId: 'family-planning-utilizes' },
+		{ name: 'Pre-natal Check Up', awareId: 'pre-natal-check-up-aware', utilizesId: 'pre-natal-check-up-utilizes' },
+		{ name: 'Well-baby Clinic', awareId: 'well-baby-clinic-aware', utilizesId: 'well-baby-clinic-utilizes' },
+		{ name: `${Aothers}`, awareId: 'others-aware', utilizesId: 'others-utilizes'}
+	  ];
+	  
+	  db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Community_Health_Programs" (
+		  Health_Programs TEXT,
+		  Aware TEXT,
+		  Utilizes TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Community_Health_Programs`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Community_Health_Programs`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			const values = [];
+			for (const program of healthPrograms) {
+			  const awareInput = document.querySelector(`#${program.awareId}`);
+			  const utilizesInput = document.querySelector(`#${program.utilizesId}`);
+			  const awareValue = awareInput && awareInput.checked ? 'yes' : 'no';
+			  const utilizesValue = utilizesInput && utilizesInput.checked ? 'yes' : 'no';
+			  values.push(program.name, awareValue, utilizesValue);
+			}
+			const placeholders = healthPrograms.map(() => '(?, ?, ?)').join(', ');
+			const sql = `INSERT INTO "${head}_Community_Health_Programs"('Health_Programs', 'Aware', 'Utilizes') VALUES ${placeholders}`;
+			db.run(sql, values, function (err) {
+			  if (err) {
+				console.log(err);
+			  } else {
+				console.log('success');
+			  }
+			});
+		  }
+		}
+	  );
+
+	var getba = document.getElementsByName('Ba');
+	var getbb = document.getElementsByName('Bb');
+	var getbc = document.getElementsByName('Bc');
+	var getbd = document.getElementsByName('Bd');
+	var getbe = document.getElementsByName('Be');
+	var getbf = document.getElementsByName('Bf');
+	var getbg = document.getElementsByName('Bg');
+	var getbh = document.getElementsByName('Bh');
+	var getbi = document.getElementsByName('Bi');
+	var getbj = document.getElementsByName('Bj');
+	var getbk = document.getElementsByName('Bk');
+	var getbl = document.getElementsByName('Bl');
+	var getbm = document.getElementsByName('Bm');
+	var getbn = document.getElementsByName('Bn');
+	var getbo = document.getElementsByName('Bo');
+
+
+	  var ba = "";
+	  var bb = "";
+	  var bc = "";
+	  var bd = "";
+	  var be = "";
+	  var bf = "";
+	  var bg = "";
+	  var bh = "";
+	  var bi = "";
+	  var bj = "";
+	  var bk = "";
+	  var bl = "";
+	  var bm = "";
+	  var bn = "";
+	  var bo = "";
+
+	  for(var i = 0; i < getba.length; i++){
+		if(getba[i].checked){
+			ba += getba[i].value
+		}
+	  }
+	  for(var i = 0; i < getbb.length; i++){
+		if(getbb[i].checked){
+			bb += getbb[i].value
+		}
+	  }
+	  for(var i = 0; i < getbc.length; i++){
+		if(getbc[i].checked){
+			bc += getbc[i].value
+		}
+	  }
+	  for(var i = 0; i < getbd.length; i++){
+		if(getbd[i].checked){
+			bd += getbd[i].value
+		}
+	  }
+	  for(var i = 0; i < getbe.length; i++){
+		if(getbe[i].checked){
+			be += getbe[i].value
+		}
+	  }
+	  for(var i = 0; i < getbf.length; i++){
+		if(getbf[i].checked){
+			bf += getbf[i].value
+		}
+	  }
+	  for(var i = 0; i < getbg.length; i++){
+		if(getbg[i].checked){
+			bg += getbg[i].value
+		}
+	  }
+	  for(var i = 0; i < getbh.length; i++){
+		if(getbh[i].checked){
+			bh += getbh[i].value
+		}
+	  }
+	  for(var i = 0; i < getbi.length; i++){
+		if(getbi[i].checked){
+			bi += getbi[i].value
+		}
+	  }
+	  for(var i = 0; i < getbj.length; i++){
+		if(getbj[i].checked){
+			bj += getbj[i].value
+		}
+	  }
+	  for(var i = 0; i < getbk.length; i++){
+		if(getbk[i].checked){
+			bk += getbk[i].value
+		}
+	  }
+	  for(var i = 0; i < getbl.length; i++){
+		if(getbl[i].checked){
+			bl += getbl[i].value
+		}
+	  }
+	  for(var i = 0; i < getbm.length; i++){
+		if(getbm[i].checked){
+			bm += getbm[i].value
+		}
+	  }
+	  for(var i = 0; i < getbn.length; i++){
+		if(getbn[i].checked){
+			bn += getbn[i].value
+		}
+	  }
+	  for(var i = 0; i < getbo.length; i++){
+		if(getbo[i].checked){
+			bo += getbo[i].value
+		}
+	  }
+
+	  var barem = document.getElementById('baremark').value;
+	  var bbrem = document.getElementById('bbremark').value;
+	  var bcrem = document.getElementById('bcremark').value;
+	  var bdrem = document.getElementById('bdremark').value;
+	  var berem = document.getElementById('beremark').value;
+	  var bfrem = document.getElementById('bfremark').value;
+	  var bgrem = document.getElementById('bgremark').value;
+	  var bhrem = document.getElementById('bhremark').value;
+	  var birem = document.getElementById('biremark').value;
+	  var bjrem = document.getElementById('bjremark').value;
+	  var bkrem = document.getElementById('bkremark').value;
+	  var blrem = document.getElementById('blremark').value;
+	  var bmrem = document.getElementById('bmremark').value;
+	  var bnrem = document.getElementById('bnremark').value;
+	  var borem = document.getElementById('boremark').value;
+	  
+	  db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Family_Health_Practices" (
+		  Health_Practices TEXT,
+		  Practiced_or_Not_Practiced TEXT,
+		  Frequency_or_Remarks TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Family_Health_Practices`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Family_Health_Practices`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			db.run(`INSERT INTO "${head}_Family_Health_Practices" (Health_Practices, Practiced_or_Not_Practiced, Frequency_or_Remarks) 
+			VALUES (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?)`,
+			  [
+			  'Use of Hygienic Products', `${ba}`, `${barem}`,
+			  'Sleep 6-8 hrs/day', `${bb}`, `${bbrem}`,
+			  'Brushes Teeth', `${bc}`, `${bcrem}`, 
+			  'Cuts Nails', `${bd}`, `${bdrem}`, 
+			  'Cleans Ears', `${be}`, `${berem}`,
+			  'Changes Clothes', `${bf}`,`${bfrem}`, 
+			  'Eats Balanced Diet', `${bg}`, `${bgrem}`, 
+			  'Smoking', `${bh}`, `${bhrem}`,
+			  'Regular Excercise', `${bi}`,  `${birem}`, 
+			  'Use Prohibited Drugs', `${bj}`,  `${bjrem}`, 
+			  'Dental Check Up', `${bk}`, `${bkrem}`, 
+			  'Drinking Alcohol Beverages', `${bl}`, `${blrem}`,
+			  'Medical Check-up', `${bm}`, `${bmrem}`, 
+			  'Recreational Relaxation Activities', `${bn}`,`${bnrem}`, 
+			  'Go to Church Regularly', `${bo}`,`${borem}`
+			  ], function (err) {
+				if (err) {
+				  console.log(err);
+				} else {
+				  console.log('success');
+				}
+			  });
+		  }
+		}
+	  );
 }
 
   function addnew1() { 
@@ -833,8 +1041,3 @@ function deleteit6(){
 				table.deleteRow(rowCount - 1);
 			}
 }
-  
-  
-
-
-
