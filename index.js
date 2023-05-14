@@ -883,6 +883,460 @@ function btnbtn() {
 		  }
 		}
 	  );
+
+	  var c = document.getElementsByName('C');
+	  var d = document.getElementsByName('D');
+	  var cothers = document.getElementById('cothers').value;
+	  var dothers = document.getElementById('dothers').value;
+	  var C = "";
+	  var D = "";
+
+	  for(var i = 0; i < c.length; i++){
+		if(c[i].checked){
+			if(c[i].value != "others"){
+			C += c[i].value;
+		} 
+		if(c[i].value == "others"){
+			C += cothers;
+		}
+		}
+	}
+
+	for(var i = 0; i < d.length; i++){
+		if(d[i].checked){
+			if(d[i].value != "others"){
+			D += d[i].value;
+		} 
+		if(d[i].value == "others"){
+			D += dothers;
+		}
+		}
+	}
+
+
+
+	  db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Health_Ascpects" (
+		  C TEXT,
+		  D TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Health_Ascpects`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Health_Ascpects`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			db.run(`INSERT INTO "${head}_Health_Ascpects" VALUES (?, ?)`, 
+			[	C, 
+				D
+			], function (err) {
+			  if (err) {
+				console.log(err);
+			  } else {
+				console.log('success');
+			  }
+			});
+		  }
+		}
+	  );
+
+	  db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Method_of_Family_Planning" (
+		  Name TEXT,
+		  Age TEXT,
+		  Acceptor TEXT,
+		  Method TEXT,
+		  Types TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Method_of_Family_Planning already exists`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Method_of_Family_Planning already exists`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			var table = document.getElementById('mfptable');
+			if (!table) {
+			  console.log('Table not found');
+			  return;
+			}
+			var table = document.getElementById("mfptable");
+			if (table) {
+			  var tbody = table.getElementsByTagName('tbody')[0];
+			  var promises = [];
+			  for (var i = 1; i < tbody.rows.length+1; i++) {
+				var name = document.getElementById("name"+`${i}`).value;
+				var age = document.getElementById("Age"+`${i}`).value;
+				var method = document.getElementById("method"+`${i}`).value;
+				var types = document.getElementById("types"+`${i}`).value;
+				var accept = document.querySelectorAll('input[name="E'+ i +'"]');
+				var acceptor = "";
+				for(var e = 0; e < accept.length; e++){
+    				if(accept[e].checked){
+        				acceptor += accept[e].value;
+    				}
+				}
+				var promise = new Promise(function(resolve, reject) {
+				  db.run(`INSERT INTO "${head}_Method_of_Family_Planning" VALUES (?, ?, ?, ?, ?)`, 
+					[name, age, acceptor, method, types], function (err) {
+					  if (err) {
+						console.log(err);
+						reject(err);
+					  } else {
+						console.log('success');
+						resolve();
+					  }
+					});
+				});
+				promises.push(promise);
+			  }
+			  Promise.all(promises)
+				.then(function() {
+				  console.log("All data inserted successfully");
+				})
+				.catch(function(err) {
+				  console.log("Error inserting data:", err);
+				});
+			}
+		  }
+		}
+	);
+
+	db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Immunization_Status" (
+		  Name TEXT,
+		  Age TEXT,
+		  BCG TEXT,
+		  Hepa_B TEXT,
+		  Penta TEXT,
+		  PCV TEXT,
+		  OPV TEXT,
+		  IPV TEXT,
+		  MMR TEXT,
+		  Remarks TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Immunization_Status already exists`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Immunization_Status already exists`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			var table = document.getElementById('istagtable');
+			if (!table) {
+			  console.log('Table not found');
+			  return;
+			}
+			var table = document.getElementById("istagtable");
+			if (table) {
+			  var tbody = table.getElementsByTagName('tbody')[0];
+			  var promises = [];
+			  for (var i = 1; i < tbody.rows.length+1; i++) {
+				var name = document.getElementById("name1"+`${i}`).value;
+				var age = document.getElementById("age1"+`${i}`).value;
+				var bcg = document.getElementById("bcg1"+`${i}`).value;
+				var hepab = document.getElementById("hepab1"+`${i}`).value;
+				var getpenta = document.querySelectorAll('input[name="penta'+ i +'"]');
+				var getpcv = document.querySelectorAll('input[name="pcv'+ i +'"]');
+				var getopv = document.querySelectorAll('input[name="opv'+ i +'"]');
+				var ipv = document.getElementById("ipv"+`${i}`).value;
+				var getmmr = document.querySelectorAll('input[name="mmr'+ i +'"]');
+				var getremarks = document.querySelectorAll('input[name="remarks'+ i +'"]');
+				var penta = "";
+				var pcv = "";
+				var opv = "";
+				var mmr = "";
+				var remarks = "";
+				for(var f = 0; f < getpenta.length; f++){
+    				if(getpenta[f].checked){
+        				penta += getpenta[f].value + " ";
+    				}
+				}
+				for(var f = 0; f < getpcv.length; f++){
+    				if(getpcv[f].checked){
+        				pcv += getpcv[f].value + " ";
+    				}
+				}
+				for(var f = 0; f < getopv.length; f++){
+    				if(getopv[f].checked){
+        				opv += getopv[f].value + " ";
+    				}
+				}
+				for(var f = 0; f < getmmr.length; f++){
+    				if(getmmr[f].checked){
+        				mmr += getmmr[f].value + " ";
+    				}
+				}
+				for(var f = 0; f < getremarks.length; f++){
+    				if(getremarks[f].checked){
+        				remarks += getremarks[f].value + " ";
+    				}
+				}
+				var promise = new Promise(function(resolve, reject) {
+				  db.run(`INSERT INTO "${head}_Immunization_Status" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
+					[name, age, bcg, hepab, penta, pcv, opv, ipv, mmr, remarks], function (err) {
+					  if (err) {
+						console.log(err);
+						reject(err);
+					  } else {
+						resolve();
+					  }
+					});
+				});
+				promises.push(promise);
+			  }
+			  Promise.all(promises)
+				.then(function() {
+				  console.log("success");
+				})
+				.catch(function(err) {
+				  console.log("Error inserting data:", err);
+				});
+			}
+		  }
+		}
+	);
+
+	db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Maternal_Care" (
+		  Name TEXT,
+		  No_of_Pregnancy TEXT,
+		  Age_of_Gestation TEXT,
+		  EDC TEXT,
+		  Prenatal_Check_up TEXT,
+		  Tetanus_Toxoid TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Maternal_Care already exists`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Maternal_Care already exists`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			var table = document.getElementById('mctable');
+			if (!table) {
+			  console.log('Table not found');
+			  return;
+			}
+			var table = document.getElementById("mctable");
+			if (table) {
+			  var tbody = table.getElementsByTagName('tbody')[0];
+			  var promises = [];
+			  for (var i = 1; i < tbody.rows.length+1; i++) {
+				var name = document.getElementById("name2"+`${i}`).value;
+				var pregnancy = document.getElementById("pregnancy"+`${i}`).value;
+				var gestation = document.getElementById("gestation"+`${i}`).value;
+				var edc = document.getElementById("edc"+`${i}`).value;
+				var getG = document.querySelectorAll('input[name="G'+ i +'"]');
+				var getTT = document.querySelectorAll('input[name="tt'+ i +'"]');
+				var G = "";
+				var TT = "";
+				for(var f = 0; f < getG.length; f++){
+    				if(getG[f].checked){
+        				G += getG[f].value;
+    				}
+				}
+				for(var f = 0; f < getTT.length; f++){
+    				if(getTT[f].checked){
+        				TT += getTT[f].value + " ";
+    				}
+				}
+				var promise = new Promise(function(resolve, reject) {
+				  db.run(`INSERT INTO "${head}_Maternal_Care" VALUES (?, ?, ?, ?, ?, ?)`, 
+					[name, pregnancy, gestation, edc, G, TT], function (err) {
+					  if (err) {
+						console.log(err);
+						reject(err);
+					  } else {
+						resolve();
+					  }
+					});
+				});
+				promises.push(promise);
+			  }
+			  Promise.all(promises)
+				.then(function() {
+				  console.log("success");
+				})
+				.catch(function(err) {
+				  console.log("Error inserting data:", err);
+				});
+			}
+		  }
+		}
+	);
+
+	db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Morbidity" (
+		  Name TEXT,
+		  Age TEXT,
+		  Sex TEXT,
+		  Type_of_Disease TEXT,
+		  Intervention TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Morbidity already exists`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Morbidity already exists`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			var table = document.getElementById('morbtable');
+			if (!table) {
+			  console.log('Table not found');
+			  return;
+			}
+			var table = document.getElementById("morbtable");
+			if (table) {
+			  var tbody = table.getElementsByTagName('tbody')[0];
+			  var promises = [];
+			  for (var i = 1; i < tbody.rows.length+1; i++) {
+				var name = document.getElementById("name3"+`${i}`).value;
+				var age = document.getElementById("age3"+`${i}`).value;
+				var sex = document.getElementById("sex3"+`${i}`).value;
+				var disease = document.getElementById("disease3"+`${i}`).value;
+				var intervention = document.getElementById("intervention3"+`${i}`).value;
+				var promise = new Promise(function(resolve, reject) {
+				  db.run(`INSERT INTO "${head}_Morbidity" VALUES (?, ?, ?, ?, ?)`, 
+					[name, age, sex, disease, intervention], function (err) {
+					  if (err) {
+						console.log(err);
+						reject(err);
+					  } else {
+						resolve();
+					  }
+					});
+				});
+				promises.push(promise);
+			  }
+			  Promise.all(promises)
+				.then(function() {
+				  console.log("success");
+				})
+				.catch(function(err) {
+				  console.log("Error inserting data:", err);
+				});
+			}
+		  }
+		}
+	);
+
+	db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Mortality" (
+		  Name TEXT,
+		  Age TEXT,
+		  Sex TEXT,
+		  Cause_of_Death TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Mortality already exists`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Mortality already exists`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			var table = document.getElementById('morttable');
+			if (!table) {
+			  console.log('Table not found');
+			  return;
+			}
+			var table = document.getElementById("morttable");
+			if (table) {
+			  var tbody = table.getElementsByTagName('tbody')[0];
+			  var promises = [];
+			  for (var i = 1; i < tbody.rows.length+1; i++) {
+				var name = document.getElementById("name4"+`${i}`).value;
+				var age = document.getElementById("age4"+`${i}`).value;
+				var sex = document.getElementById("sex4"+`${i}`).value;
+				var death = document.getElementById("death4"+`${i}`).value;
+				var promise = new Promise(function(resolve, reject) {
+				  db.run(`INSERT INTO "${head}_Mortality" VALUES (?, ?, ?, ?)`, 
+					[name, age, sex, death], function (err) {
+					  if (err) {
+						console.log(err);
+						reject(err);
+					  } else {
+						resolve();
+					  }
+					});
+				});
+				promises.push(promise);
+			  }
+			  Promise.all(promises)
+				.then(function() {
+				  console.log("success");
+				})
+				.catch(function(err) {
+				  console.log("Error inserting data:", err);
+				});
+			}
+		  }
+		}
+	);
+
+	var sources = document.querySelectorAll('input[name="sources"]');
+	var vothers = document.getElementById('vothers').value;
+	var newsource = '';
+
+	for(var i = 0; i < sources.length; i++){
+		if(sources[i].checked){
+			if(sources[i].value != "others"){
+				newsource += sources[i].value + " ";
+			} else if(sources[i].value == "others"){
+				newsource += sources[i].value + " " + vothers;
+			}
+		}
+	}
+
+	db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Sources_of_Information_and_Communication" (
+		  Sources TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Sources_of_Information_and_Communication`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Sources_of_Information_and_Communication`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			db.run(`INSERT INTO "${head}_Sources_of_Information_and_Communication" VALUES (?)`, 
+			[	newsource
+			], function (err) {
+			  if (err) {
+				console.log(err);
+			  } else {
+				console.log('success');
+			  }
+			});
+		  }
+		}
+	  );
+
+	  var cultural = document.getElementById("cultural").value;
+	  var supernatural = document.getElementById("supernatural").value;
+	  var condition = document.getElementById("condition").value;
+
+	  db.run(
+		`CREATE TABLE IF NOT EXISTS "${head}_Cultural_Patterns_and_Beliefs" (
+		  Common_Cultural_Beliefs TEXT,
+		  Beliefs_in_Supernatural_Beings TEXT,
+		  Beliefs_in_Illness_Disease_Condition TEXT
+		)`,
+		function (err) {
+		  if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Cultural_Patterns_and_Beliefs`) || err.message.includes(`database ${head}.db already exists`))) {
+			console.log(`${head}_Cultural_Patterns_and_Beliefs`);
+		  } else if (err) {
+			console.log(err);
+		  } else {
+			db.run(`INSERT INTO "${head}_Cultural_Patterns_and_Beliefs" VALUES (?, ?, ?)`, 
+			[
+				cultural,
+				supernatural,
+				condition
+			], function (err) {
+			  if (err) {
+				console.log(err);
+			  } else {
+				console.log('success');
+			  }
+			});
+		  }
+		}
+	  );
 }
 
   function addnew1() { 
@@ -915,16 +1369,20 @@ function deleteit1(){
 function addnew2() { 
     var table = document.getElementById('mfptable');
     var row = table.insertRow(-1);
+	if (table) {
+		var tbody = table.getElementsByTagName('tbody')[0];
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
 		var cell4 = row.insertCell(3);
 		var cell5 = row.insertCell(4);
-		cell1.innerHTML = "<input type='text' >";
-		cell2.innerHTML = "<input type='text' >";
-		cell3.innerHTML = "<input type='radio'>Yes &nbsp; <input type='radio'>No";
-		cell4.innerHTML = "<input type='text' >";
-		cell5.innerHTML = "<input type='text' >";
+		var rowCount = tbody.rows.length;
+		cell1.innerHTML = `<input type='text' id="name${rowCount}">`;
+		cell2.innerHTML = `<input type='text' id="Age${rowCount}">`;
+		cell3.innerHTML = `<input type='radio' value='Yes' name="E${rowCount}">Yes &nbsp; <input type='radio' value='No' name="E${rowCount}">No`;
+		cell4.innerHTML = `<input type='text' id="method${rowCount}">`;
+		cell5.innerHTML = `<input type='text' id="types${rowCount}">`;
+	}
 }
 
 function deleteit2(){
@@ -938,6 +1396,8 @@ function deleteit2(){
 function addnew3() { 
     var table = document.getElementById('istagtable');
     var row = table.insertRow(-1);
+	if (table) {
+		var tbody = table.getElementsByTagName('tbody')[0];
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
@@ -948,17 +1408,18 @@ function addnew3() {
 		var cell8 = row.insertCell(7);
 		var cell9 = row.insertCell(8);
 		var cell10 = row.insertCell(9);
-		cell1.innerHTML = "<input type='text' >";
-		cell2.innerHTML = "<input type='text' >";
-		cell3.innerHTML = "<input type='text' >";
-		cell4.innerHTML = "<input type='text' >";
-		cell5.innerHTML = "<input type='checkbox' >1<input type='checkbox' >2<input type='checkbox' >3";
-		cell6.innerHTML = "<input type='checkbox' >1<input type='checkbox' >2<input type='checkbox' >3";
-		cell7.innerHTML = "<input type='checkbox' >1<input type='checkbox' >2<input type='checkbox' >3";
-		cell8.innerHTML = "<input type='text' >";
-		cell9.innerHTML = "<input type='checkbox' >1<input type='checkbox' >2";
-		cell10.innerHTML = "<input type='checkbox' >Inc<input type='checkbox' >CIC<input type='checkbox' >FIC";
-
+		var rowCount = tbody.rows.length;
+		cell1.innerHTML = `<input type='text' id='name1${rowCount}'>`;
+		cell2.innerHTML = `<input type='text' id='age1${rowCount}'>`;
+		cell3.innerHTML = `<input type='text' id='bcg1${rowCount}'>`;
+		cell4.innerHTML = `<input type='text' id='hepab1${rowCount}'>`;
+		cell5.innerHTML = `<input type='checkbox' name='penta${rowCount}' value=1>1<input type='checkbox' name='penta${rowCount}' value='2'>2<input type='checkbox' name='penta${rowCount}' value='3'>3`;
+		cell6.innerHTML = `<input type='checkbox' name='pcv${rowCount}' value='1'>1<input type='checkbox' name='pcv${rowCount}' value='2'>2<input type='checkbox' name='pcv${rowCount}' value='3'>3`;
+		cell7.innerHTML = `<input type='checkbox' name='opv${rowCount}' value='1'>1<input type='checkbox' name='opv${rowCount}' value='2'>2<input type='checkbox' name='opv${rowCount}' value='3'>3`;
+		cell8.innerHTML = `<input type='text' id='ipv${rowCount}'>`;
+		cell9.innerHTML = `<input type='checkbox' name='mmr${rowCount}' value='1'>1<input type='checkbox' name='mmr${rowCount}' value='2'>2`;
+		cell10.innerHTML = `<input type='checkbox' name='remarks${rowCount}' value='Inc'>Inc<input type='checkbox' name='remarks${rowCount}' value='CIC'>CIC<input type='checkbox' name='remarks${rowCount}' value='FIC'>FIC`;
+	}
 }
 
 function deleteit3(){
@@ -972,19 +1433,22 @@ function deleteit3(){
 function addnew4() { 
     var table = document.getElementById('mctable');
     var row = table.insertRow(-1);
+	if (table) {
+		var tbody = table.getElementsByTagName('tbody')[0];
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
 		var cell4 = row.insertCell(3);
 		var cell5 = row.insertCell(4);
 		var cell6 = row.insertCell(5);
-		cell1.innerHTML = "<input type='text' >";
-		cell2.innerHTML = "<input type='text' >";
-		cell3.innerHTML = "<input type='text' >";
-		cell4.innerHTML = "<input type='text' >";
-		cell5.innerHTML = "<input type='radio' >Yes<input type='radio' >No";
-		cell6.innerHTML = "<input type='checkbox' >TT1<input type='checkbox' >TT2<input type='checkbox' >TT3<input type='checkbox' >TT4<input type='checkbox' >TT5";
-
+		var rowCount = tbody.rows.length;
+		cell1.innerHTML = `<input type='text' id='name2${rowCount}'>`;
+		cell2.innerHTML = `<input type='text' id='pregnancy${rowCount}'>`;
+		cell3.innerHTML = `<input type='text' id='gestation${rowCount}'>`;
+		cell4.innerHTML = `<input type='text' id='edc${rowCount}'>`;
+		cell5.innerHTML = `<input type='radio' name='G${rowCount}' value='Yes'>Yes<input type='radio' name='G${rowCount}' value='No'>No`;
+		cell6.innerHTML = `<input type='checkbox' name='tt${rowCount}' value='TT1'>TT1<input type='checkbox' name='tt${rowCount}' value='TT2'>TT2<input type='checkbox' name='tt${rowCount}' value='TT3'>TT3<input type='checkbox'  name='tt${rowCount}' value='TT4'>TT4<input type='checkbox'  name='tt${rowCount}' value='TT5'>TT5`;
+	}
 }
 
 function deleteit4(){
@@ -998,19 +1462,20 @@ function deleteit4(){
 function addnew5() { 
     var table = document.getElementById('morbtable');
     var row = table.insertRow(-1);
+	if (table) {
+		var tbody = table.getElementsByTagName('tbody')[0];
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
 		var cell4 = row.insertCell(3);
 		var cell5 = row.insertCell(4);
-		var cell6 = row.insertCell(5);
-		cell1.innerHTML = "<input type='text' >";
-		cell2.innerHTML = "<input type='text' >";
-		cell3.innerHTML = "<input type='text' >";
-		cell4.innerHTML = "<input type='text' >";
-		cell5.innerHTML = "<input type='text' >";
-		cell6.innerHTML = "<input type='text' >";
-
+		var rowCount = tbody.rows.length;
+		cell1.innerHTML = `<input type='text' id='name3${rowCount}'>`;
+		cell2.innerHTML = `<input type='text' id='age3${rowCount}'>`;
+		cell3.innerHTML = `<input type='text' id='sex3${rowCount}'>`;
+		cell4.innerHTML = `<input type='text' id='disease3${rowCount}'>`;
+		cell5.innerHTML = `<input type='text' id='intervention3${rowCount}'>`;
+	}
 }
 
 function deleteit5(){
@@ -1024,14 +1489,18 @@ function deleteit5(){
 function addnew6() { 
     var table = document.getElementById('morttable');
     var row = table.insertRow(-1);
+	if (table) {
+		var tbody = table.getElementsByTagName('tbody')[0];
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
 		var cell4 = row.insertCell(3);
-		cell1.innerHTML = "<input type='text' >";
-		cell2.innerHTML = "<input type='text' >";
-		cell3.innerHTML = "<input type='text' >";
-		cell4.innerHTML = "<input type='text' >";
+		var rowCount = tbody.rows.length;
+		cell1.innerHTML = `<input type='text' id='name4${rowCount}'>`;
+		cell2.innerHTML = `<input type='text' id='age4${rowCount}'>`;
+		cell3.innerHTML = `<input type='text' id='sex4${rowCount}'>`;
+		cell4.innerHTML = `<input type='text' id='death4${rowCount}'>`;
+	}
 }
 
 function deleteit6(){
