@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Select Content</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <label for="content-select">Select Content:</label>
+    <select id="content-select"><option value="" disabled selected>Select a database</option></select>
+    <br>
+    <div class="info">
+        <table class="table">
+            <tr>
+                <td>
+                    <label for="">Head of the Family:</label>
+                    <input type="text" class="input" id="head" disabled>
+                </td>
+                <td>
+                    <label for="">No. of Family Member:</label>
+                    <input type="text" class="input" id="numfam" disabled>
+                </td>
+            <tr>
+                <td>
+                    <label for="">Complete Address:</label>
+                    <input type="text" class="input" id="address" disabled>
+                </td>
+                <td>
+                    <label for="">Length of Residency:</label>
+                    <input type="text" class="input" id="length" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Ethnic Group:</label>
+                    <input type="text" class="input" id="ethnic" disabled>
+                </td>
+                <td>
+                    <label for="">Type of Family:</label>
+                    <input type="text" class="input" id="famtype" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Primary Dialect:</label>
+                    <input type="text" class="input" id="primdia" disabled>
+                </td>
+            </tr>
+            </tr>
+        </table>
+        <br>
+        <hr>
+    </div>
+    <h2>I. PHYSICAL/GEOGRAPHICAL DATA</h2>
+    <hr>
+    </div>
+    <br>
+    <div class="info">
+        <table class="table">
+            <tr>
+                <td>
+                    <label for="">Land Area:</label>
+                    <input type="text" class="input" id="lanare" disabled>
+                </td>
+            <tr>
+                <td>
+                    <br>
+                    <label for="">Boundaries of the Barangay:</label><br>
+                    
+                    <label for="">North:</label><br>
+                    <input type="text" class="input" id="north" disabled><br>
+
+                    <label for="">West:</label><br>
+                    <input type="text" class="input" id="west" disabled><br>
+                </td>
+                <td><br><br>
+                    <label for="">East:</label><br>
+                    <input type="text" class="input" id="east" disabled><br>
+
+                    <label for="">South:</label><br>
+                    <input type="text" class="input" id="south" disabled><br>
+                </td>
+            <tr>
+                <td>
+                    <br>
+                    <label for="">Names of Sitios composing the Barangay:</label><br>
+                    <input type="text" class="input" id="nscb" disabled>
+                    <br><br>
+                    <label for="">Distance of Sitios from the landmark (Barangay Hall):</label><br>
+                    <input type="text" class="input" id="dslbh" disabled>
+                    <br><br>
+                    <label for="">Distance of Barangay from the Town proper:</label><br>
+                    <input type="text" class="input" id="dbtp" disabled>
+                    <br><br>
+                    <label for="">Distance of the Barangay from the National Highway:</label><br>
+                    <input type="text" class="input" id="dbnh" disabled>
+                    <br><br>
+                    <label for="">Facilities (BHS, school, church, brgy hall, store, basketball, multipurpose hall, and others):</label><br>
+                    <input type="text" class="input" id="faci" disabled>
+                    <br><br>
+                    <label for="">Transportation:</label><br>
+                    <input type="text" class="input" id="trans" disabled>
+                    <br><br>
+                    <label for="">Natural resources (river, mountains, agricultural lands and others):</label><br>
+                    <input type="text" class="input" id="natres" disabled>
+                </td>
+            </tr>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <br>
+        <hr>
+        <h2>II. COMMUNITY AS PEOPLE</h2>
+        <hr>
+        <table border = "1" class="captable">
+            <h5>Family Structure, Characteristics and Dynamic/Relation Patterns</h5>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name of Household Member</th>
+                <th>Relation to the Head</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Birthdate<br>(mm-dd-yy)</th>
+                <th>Civil<br>Status</th>
+                <th>Occupation</th>
+                <th>Occupational<br>Status</th>
+                <th>Highest<br>Educational<br>Attainment</th>
+                <th>Religion</th>
+            </tr>
+            </thead>
+            <tbody  id="captable">
+            
+            </tbody>
+            <table border="1" class="legend">
+                <tr>
+                    <td>
+                        <p><b>LEGEND:</b><br>
+                            <b>Sex: </b> 
+                            M-Male; F-Female <br>
+                            <b>Civil Status: </b>
+                            S-Single; M-Married; W-Widowed; CL-CommonLaw; Sep-Separated <br>
+                            <b>Religion: </b>
+                            C-Catholic; P-Protestant; SA-7th Day Adventist; INC-Iglesia ni Cristo; JW-Jehova's Witness <br>
+                            <b>Highest Educ. Attainment: </b>
+                            EG-Elem Grad; EU-Elem Undergrad; HG-Highschool Grad; HU-Highschool Undergrad; CU-College Undergrad; V-Vocational; CG-College Grad <br>
+                            <b>Occupational Status: </b>
+                            E-Employed; U-Unemployed; SE-Self Employed
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </table>
+    </div>
+
+    <div>
+        <br>
+        <hr>
+        <h2>III. COMMUNITY AS A SOCIAL SYSTEM</h2>
+        <hr>
+        <h2>A. Socio-economic Aspects</h2>
+        <h4 class="asize">A.1. Combined monthly family income</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="a1"></p>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">A.2. Other Source of Income (Indicate the profit earned then add the monthly family income)</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="a2"></p>
+                </tr>
+            </table>
+    </div>
+    <h4 class="asize">A.3. Monthly Expenditure</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="a3"></p>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">A.4. Priority Expenditure (Rank it from highest to lowest using the numerical values)</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="a4"></p>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">A.5. Resources allocated for health care</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="a5"></p>
+                </tr>
+            </table>
+    </div>
+    <hr>
+    <h2>B. Political/Leadership Aspect</h2>
+        <h4 class="asize">B.1. Recognized leaders in the community</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="b1"></p>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">B.2. Community program</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="b2"></p>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">B.3. Predominant organizations in the community</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="b3"></p>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">B.4. Tradition celebrated, observed in the community</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="b4"></p>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <h2>C. Environmental Aspect</h2>
+        <h4 class="asize">C.1. House ownership</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c1"></label>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.2. Land ownership</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c2"></label>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.3. Type of Construction materials used</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c3"></label>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.4. Ventilation</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c4"></label>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.5. Lighting Facilities</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c5"></label>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.6. Source of Drinking Water</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c6"></label>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.7. Storage of Drinking Water</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c7"></label>
+                    <label for="" id="c71"></label>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.8. Drainage Facility</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c8"></label>
+                    <label for="" id="c81"></label>
+                </tr>
+            </table>
+        </div>
+
+        <h4 class="asize">C.9. Types of Garbage Disposal</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <td>
+                        <label for="" id="c9"></label>                    
+                        <label for="" id="c91"></label>
+                        <label for="" id="c92"></label>
+                        <label for="" id="c93"></label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.10. Toilet Facilities</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <label for="" id="c10"></label>
+                    <label for="" id="c101"></label>
+                    <label for="" id="c103"></label>
+                    <label for="" id="c102"></label>
+                    <label for="" id="c104"></label>
+                </tr>
+            </table>
+        </div>
+
+
+    <script src="view.js"></script>
+  </body>
+</html>

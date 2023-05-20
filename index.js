@@ -93,7 +93,7 @@ function btnbtn() {
   
 
   db.run(
-	`CREATE TABLE IF NOT EXISTS "${head}_Physical/Geographical_Data" (
+	`CREATE TABLE IF NOT EXISTS "${head}_PhysicalGeographical_Data" (
 	  Land_Area TEXT,
 	  Boundary_North TEXT,
 	  Boundary_West TEXT,
@@ -108,12 +108,12 @@ function btnbtn() {
 	  Natural_Resources TEXT
 	)`,
 	function (err) {
-		if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Physical/Geographical_Data already exists`) || err.message.includes(`database ${head}.db already exists`))) {
-		  console.log(`${head}_Physical/Geographical_Data already exists`);
+		if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_PhysicalGeographical_Data already exists`) || err.message.includes(`database ${head}.db already exists`))) {
+		  console.log(`${head}_PhysicalGeographical_Data already exists`);
 		} else if (err) {
 		  console.log(err);
 		} else {
-		  db.run(`INSERT INTO "${head}_Physical/Geographical_Data" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
+		  db.run(`INSERT INTO "${head}_PhysicalGeographical_Data" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
 		  [lanare, north, west, east, south, nscb, dslbh, dbtp, dbnh, faci, trans, natres], function (err) {
 			if (err) {
 			  console.log(err);
@@ -1509,4 +1509,8 @@ function deleteit6(){
 			if (rowCount > 2) {
 				table.deleteRow(rowCount - 1);
 			}
+}
+
+function btngo(){
+	location.href = 'view.html';
 }
