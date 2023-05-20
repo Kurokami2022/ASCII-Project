@@ -41,16 +41,17 @@ contentSelect.addEventListener('change', (event) => {
     var primdia = document.getElementById('primdia');
 
   db.get(`SELECT * FROM ${tableName}_info`, (err, row) => {
-    head.value = row.Family_Head.replace('_', ' ');
-    numfam.value = row.No_of_Family_Member;
-    address.value = row.Complete_Address;
-    length.value = row.Length_of_Residency;
-    ethnic.value = row.Ethnic_Group;
-    famtype.value = row.Type_of_Family;
-    primdia.value = row.Primary_Dialect;
+    head.innerHTML = `<ul><li>Head of the Family: <b>${row.Family_Head.replace('_', ' ')}</b></li></ul>`;
+    numfam.innerHTML = `<ul><li>No. of Family Member: <b>${row.No_of_Family_Member}</b></li></ul>`;
+    address.innerHTML = `<ul><li>Complete Address: <b>${row.Complete_Address}</b></li></ul>`;
+    length.innerHTML = `<ul><li>Length of Residency: <b>${row.Length_of_Residency}</b></li></ul>`;
+    ethnic.innerHTML = `<ul><li>Ethnic Group: <b>${row.Ethnic_Group}</b></li></ul>`;
+    famtype.innerHTML = `<ul><li>Type of Family: <b>${row.Type_of_Family}</b></li></ul>`;
+    primdia.innerHTML = `<ul><li>Primary Dialect: <b>${row.Primary_Dialect}</b></li></ul>`;
   });
 
   var lanare = document.getElementById('lanare');
+  var bound = document.getElementById('bound');
   var north = document.getElementById('north');
   var west = document.getElementById('west');
   var east = document.getElementById('east');
@@ -64,18 +65,19 @@ contentSelect.addEventListener('change', (event) => {
   var natres = document.getElementById('natres');
 
   db.get(`SELECT * FROM ${tableName}_PhysicalGeographical_Data`, (err, row) => {
-    lanare.value = row.Land_Area;
-    north.value = row.Boundary_North;
-    west.value = row.Boundary_West;
-    east.value = row.Boundary_East;
-    south.value = row.Boundary_South;
-    nscb.value = row.Sitios_Composing_Barangay;
-    dslbh.value = row.Sitio_Distance_From_Landmark;
-    dbtp.value = row.Sitio_Distance_From_Town_Proper;
-    dbnh.value = row.Sitio_Distance_From_National_Highway;
-    faci.value = row.Facilities;
-    trans.value = row.Transportation;
-    natres.value = row.Natural_Resources;
+    lanare.innerHTML = `<ul><li>Land Area: <b>${row.Land_Area}</b></li></ul>`;
+    bound.innerHTML = "<b>Boundaries of the Barangay</b>"
+    north.innerHTML = `<ul><li>North: <b>${row.Boundary_North}</b></li></ul>`;
+    west.innerHTML = `<ul><li>West: <b>${row.Boundary_West}</b></li></ul>`;
+    east.innerHTML = `<ul><li>East: <b>${row.Boundary_East}</b></li></ul>`;
+    south.innerHTML = `<ul><li>South: <b>${row.Boundary_South}</b></li></ul>`;
+    nscb.innerHTML = `<ul><li>Names of Sitios Composing the Barangay: <b>${row.Sitios_Composing_Barangay}</b></li></ul>`;
+    dslbh.innerHTML = `<ul><li>Distance of Sitios from the Landmark (Barangay Hall): <b>${row.Sitio_Distance_From_Landmark}</b></li></ul>`;
+    dbtp.innerHTML = `<ul><li>Distance of the Barangay from Town Proper: <b>${row.Sitio_Distance_From_Town_Proper}</b></li></ul>`;
+    dbnh.innerHTML = `<ul><li>Distance of the Barangay from the National Highway: <b>${row.Sitio_Distance_From_National_Highway}</b></li></ul>`;
+    faci.innerHTML = `<ul><li>Facilities: <b>${row.Facilities}</b></li></ul>`;
+    trans.innerHTML = `<ul><li>Transportation: <b>${row.Transportation}</b></li></ul>`;
+    natres.innerHTML = `<ul><li>Natural Resources: <b>${row.Natural_Resources}</b></li></ul>`;
   });
 
   db.all(`SELECT * FROM ${tableName}_Family_Structure`, [], (err, rows) => {
@@ -128,6 +130,9 @@ contentSelect.addEventListener('change', (event) => {
     var c102 = document.getElementById('c102');
     var c103 = document.getElementById('c103');
     var c104 = document.getElementById('c104');
+    var c12 = document.getElementById('c12');
+    var c13 = document.getElementById('c13');
+    var c131 = document.getElementById('c131');
 
 
     db.get(`SELECT * FROM ${tableName}_community_as_a_social_System`, (err, row) => {
@@ -140,7 +145,6 @@ contentSelect.addEventListener('change', (event) => {
       b2.innerHTML = `<ul><li><b>${row.B2}</b></li></ul>`;
       b3.innerHTML = `<ul><li><b>${row.B3}</b></li></ul>`;
       b4.innerHTML = `<ul><li><b>${row.B4}</b></li></ul>`;
-
       c1.innerHTML = `<ul><li><b>${row.C1}</b></li></ul>`;
       c2.innerHTML = `<ul><li><b>${row.C2}</b></li></ul>`;
       c3.innerHTML = `<ul><li><b>${row.C3}</b></li></ul>`;
@@ -160,5 +164,60 @@ contentSelect.addEventListener('change', (event) => {
       c102.innerHTML = "<ul><li>Ownership: "+`<b>${row.C10_Ownership}</b></li></ul>`;
       c103.innerHTML = "<ul><li>Distance from the House to Toilet Facility: "+`<b>${row.C10_Distance_to_Toilet_Facility}</b></li></ul>`;
       c104.innerHTML = "<ul><li>Sanitary Condition: "+`<b>${row.C10_Sanitary_Condition}</b></li></ul>`;
+      db.all(`SELECT * FROM ${tableName}_Domestic_Animals`, [], (err, rows) => {
+        if (err) {
+          throw err;
+        }
+        const table = document.getElementById('datable');
+        rows.forEach((row) => {
+        let tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.Kind}</td>
+                        <td>${row.Number}</td>
+                        <td>${row.Where_Kept}</td>
+                        <td>${row.With_Vaccination}</td>
+                        <td>${row.Without_Vaccination}</td>`;
+        table.appendChild(tr);
+        });
+        });
+        c12.innerHTML = "<ul><li>"+`<b>${row.C12}</b></li></ul>`;
+        c13.innerHTML = "<ul><li>Presence Of Vectors And Rodents: "+`<b>${row.C13_Presence_of_Vectors_and_Rodents}</b></li></ul>`;
+        c131.innerHTML = "<ul><li>Ways in Controlling of Vectors: "+`<b>${row.C13_Ways_in_Controlling_Vectors}</b></li></ul>`;
     });
+
+    db.all(`SELECT * FROM ${tableName}_Community_Health_Programs`, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      const table = document.getElementById('chptable');
+      rows.forEach((row) => {
+      let tr = document.createElement('tr');
+      tr.innerHTML = `<td>${row.Health_Programs}</td>
+                      <td>${row.Aware}</td>
+                      <td>${row.Utilizes}</td>`;
+      table.appendChild(tr);
+      });
+      });
+
+    db.all(`SELECT * FROM ${tableName}_Family_Health_Practices`, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      const table = document.getElementById('fhptable');
+      rows.forEach((row) => {
+      let tr = document.createElement('tr');
+      tr.innerHTML = `<td>${row.Health_Practices}</td>
+                      <td>${row.Practiced_or_Not_Practiced}</td>
+                      <td>${row.Frequency_or_Remarks}</td>`;
+      table.appendChild(tr);
+      });
+      });
+
+      var c = document.getElementById('c');
+      var d = document.getElementById('d');
+
+      db.get(`SELECT * FROM ${tableName}_Health_Ascpects`, (err, row) => {
+        c.innerHTML = `<ul><li><b>${row.C}</b></li></ul>`;
+        d.innerHTML = `<ul><li><b>${row.D}</b></li></ul>`;
+      });
+
 });

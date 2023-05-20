@@ -9,43 +9,28 @@
     <label for="content-select">Select Content:</label>
     <select id="content-select"><option value="" disabled selected>Select a database</option></select>
     <br>
+    <div class="header">
+        <h1>DIVINE WORD COLLEGE OF LAOAG</h1>
+        <h3 class="sheader">ASCII</h3>
+        <hr>
+        <h2>COMMUNITY DIAGNOSTIC HEALTH SURVEY TOOL</h2>
+        <hr>
+    </div>
+    <br>
     <div class="info">
         <table class="table">
             <tr>
                 <td>
-                    <label for="">Head of the Family:</label>
-                    <input type="text" class="input" id="head" disabled>
+                    <p id="head"></p>
+                    <p id="address"></p>
+                    <p id="ethnic"></p>
+                    <p id="primdia"></p>
                 </td>
                 <td>
-                    <label for="">No. of Family Member:</label>
-                    <input type="text" class="input" id="numfam" disabled>
+                    <p id="numfam"></p>
+                    <p id="length"></p>
+                    <p id="famtype"></p>
                 </td>
-            <tr>
-                <td>
-                    <label for="">Complete Address:</label>
-                    <input type="text" class="input" id="address" disabled>
-                </td>
-                <td>
-                    <label for="">Length of Residency:</label>
-                    <input type="text" class="input" id="length" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="">Ethnic Group:</label>
-                    <input type="text" class="input" id="ethnic" disabled>
-                </td>
-                <td>
-                    <label for="">Type of Family:</label>
-                    <input type="text" class="input" id="famtype" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="">Primary Dialect:</label>
-                    <input type="text" class="input" id="primdia" disabled>
-                </td>
-            </tr>
             </tr>
         </table>
         <br>
@@ -59,52 +44,20 @@
         <table class="table">
             <tr>
                 <td>
-                    <label for="">Land Area:</label>
-                    <input type="text" class="input" id="lanare" disabled>
+                    <p id="lanare"></p>
+                    <p id="bound"></p>
+                    <p id="north"></p>
+                    <p id="west"></p>
+                    <p id="east"></p>
+                    <p id="south"></p>
+                    <p id="nscb"></p>
+                    <p id="dslbh"></p>
+                    <p id="dbtp"></p>
+                    <p id="dbnh"></p>
+                    <p id="faci"></p>
+                    <p id="trans"></p>
+                    <p id="natres"></p>
                 </td>
-            <tr>
-                <td>
-                    <br>
-                    <label for="">Boundaries of the Barangay:</label><br>
-                    
-                    <label for="">North:</label><br>
-                    <input type="text" class="input" id="north" disabled><br>
-
-                    <label for="">West:</label><br>
-                    <input type="text" class="input" id="west" disabled><br>
-                </td>
-                <td><br><br>
-                    <label for="">East:</label><br>
-                    <input type="text" class="input" id="east" disabled><br>
-
-                    <label for="">South:</label><br>
-                    <input type="text" class="input" id="south" disabled><br>
-                </td>
-            <tr>
-                <td>
-                    <br>
-                    <label for="">Names of Sitios composing the Barangay:</label><br>
-                    <input type="text" class="input" id="nscb" disabled>
-                    <br><br>
-                    <label for="">Distance of Sitios from the landmark (Barangay Hall):</label><br>
-                    <input type="text" class="input" id="dslbh" disabled>
-                    <br><br>
-                    <label for="">Distance of Barangay from the Town proper:</label><br>
-                    <input type="text" class="input" id="dbtp" disabled>
-                    <br><br>
-                    <label for="">Distance of the Barangay from the National Highway:</label><br>
-                    <input type="text" class="input" id="dbnh" disabled>
-                    <br><br>
-                    <label for="">Facilities (BHS, school, church, brgy hall, store, basketball, multipurpose hall, and others):</label><br>
-                    <input type="text" class="input" id="faci" disabled>
-                    <br><br>
-                    <label for="">Transportation:</label><br>
-                    <input type="text" class="input" id="trans" disabled>
-                    <br><br>
-                    <label for="">Natural resources (river, mountains, agricultural lands and others):</label><br>
-                    <input type="text" class="input" id="natres" disabled>
-                </td>
-            </tr>
             </tr>
         </table>
     </div>
@@ -328,7 +281,87 @@
                 </tr>
             </table>
         </div>
+        <h4 class="asize">C.11. Domestic Animals</h4>
+        <div class="radios">
+            <table border="1" style="text-align: center;">
+                <thead>
+                <tr>
+                    <th>Kind</th>
+                    <th>Number</th>
+                    <th>Where Kept</th>
+                    <th>With Vaccination</th>
+                    <th>Without Vaccination</th>
+                </tr>
+            </thead>
+                <tbody id="datable">
+            </tbody>
+            </table>
+        </div>
+        <h4 class="asize">C.12. Presence of Breeding Sites and Vectors of Diseases</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="c12"></p>
+                </tr>
+            </table>
+        </div>
+        <h4 class="asize">C.13. Presence of Vectors and Rodents</h4>
+        <div class="radios">
+            <table  class="radtable">
+                <tr>
+                    <p id="c13"></p>
+                    <p id="c131"></p>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <br>
+            <hr>
+            <h2>IV. HEALTH ASPECTS</h2>
+            <hr>
+            <h2 class="asize">A. Community Health Programs</h2><br>
+            <div class="radios">
+                <table class="radtable" border="1" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>Health Programs</th>
+                            <th>Aware</th>
+                            <th>Utilizes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="chptable">
 
+                    </tbody>
+                  </table>
+            </div>
+            <h2 class="asize">B. Family Health Practices</h2><br>
+            <div class="radios">
+                <table  class="radtable" border="1" style="text-align: center;">
+                    <tr>
+                        <th>Health Practices</th>
+                        <th>Practiced or Not Practiced</th>
+                        <th>Frequency/Remarks</th>
+                    </tr>
+                </thead>
+                <tbody id="fhptable">
+                    
+                </tbody>
+                </table>
+            </div>
+            <h2 class="asize">C. First Person Consulted in Times of Illness</h2><br>
+            <div class="radios">
+                <table  class="radtable">
+                    <tr>
+                        <p id="c"></p>
+                    </tr>
+                </table>
+            </div>
+            <h2 class="asize">D. Medications Taken During Illness</h2><br>
+            <div class="radios">
+                <table  class="radtable">
+                    <p id="d"></p>
+                </table>
+            </div>
 
     <script src="view.js"></script>
   </body>

@@ -1,6 +1,7 @@
 body {
-    background-color: white;
+    background: linear-gradient(to bottom, #6C757D, #D0D0D0);
     color:black;
+    background-size: cover;
 }
 .header {
     text-align: center;
