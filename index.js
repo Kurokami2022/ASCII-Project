@@ -234,13 +234,13 @@ function btnbtn() {
 	var A1 = "";
 	var A2 = "";
 	var A3 = "";
-	var A4 = `${a4food} food \n
-			  ${a4health} health \n
-			  ${a4houserent} house rent \n
-			  ${a4education} education \n
-			  ${a4electric} electric bill \n
-			  ${a4clothing} clothing \n
-			  ${a4waterbill} waterbill \n
+	var A4 = `${a4food} food,
+			  ${a4health} health,
+			  ${a4houserent} house rent,
+			  ${a4education} education,
+			  ${a4electric} electric bill,
+			  ${a4clothing} clothing,
+			  ${a4waterbill} waterbill,
 			  ${a4others}`;
 	var A5 = "";
 	var B1 = "";
@@ -1337,6 +1337,8 @@ function btnbtn() {
 		  }
 		}
 	  );
+
+	  confirm("Database Created!");
 }
 
   function addnew1() { 

@@ -2,13 +2,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Select Content</title>
+    <title>Select Database:</title>
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
+    <nav>
+        <ul class="navbar">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="index.html">Community Diagnostic Health Survey Tool</a></li>
+          <li><a href="view.html">View Database</a></li>
+        </ul>
+      </nav>
     <label for="content-select">Select Content:</label>
     <select id="content-select"><option value="" disabled selected>Select a database</option></select>
     <br>
+    <form method="post" action="index.html"> 
     <div class="header">
         <h1>DIVINE WORD COLLEGE OF LAOAG</h1>
         <h3 class="sheader">ASCII</h3>
@@ -362,7 +370,149 @@
                     <p id="d"></p>
                 </table>
             </div>
-
+            <h4 class="asize">E. Method of Family Planning</h4>
+            <div class="radios">
+            <table border="1" style="width: 70%; text-align: center;">
+                <thead>
+                <tr>
+                    <th>Name<br>(15 y/o - 49 y/o)</th>
+                    <th>Age</th>
+                    <th>Acceptor (Yes or No)</th>
+                    <th>Method<br>
+                    Withdrawal; rythm; cervical <br> mucus Method; 
+                    basal body temp; <br> condoms; IUD; Pills; <br> depo; 
+                    Vasectomy; BTL</th>
+                    <th>Types<br>N-Natural; <br> A-Artificial; <br> P-Permanent</th>
+                </tr>
+            </thead>
+                <tbody id="mfptable">
+                
+            </tbody>
+                <table border="1" class="legend" style="width: 70%;">
+                    <tr>
+                        <td>
+                            <p>Natural FP: Rhythm; Withdrawal; Cervical Mucus Method; Basal Body Temperature <br>
+                                Artificial FP: Condoms; Pills; IUD <br>
+                                Permanent FP: BTL; Vasectomy
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </table>
+        </div>
+        <h4 class="asize">F. Immunization Status Target Age Group (0-12mos)</h4>
+            <div class="radios">
+            <table border="1" style="width: 70%; text-align: center;">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>BCG</th>
+                    <th>Hepa B</th>
+                    <th>Penta</th>
+                    <th>PCV</th>
+                    <th>OPV</th>
+                    <th>IPV</th>
+                    <th>MMR</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody id="istagtable">
+                
+            </tbody>
+            </table>
+        </div>
+        <h4 class="asize">G. Maternal Care (Previous and Pregnancy in the Family, if any)</h4>
+        <div class="radios">
+        <table border="1" style="width: 70%; text-align: center;">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>No. of Pregnancy</th>
+                <th>Age of Gestation</th>
+                <th>EDC</th>
+                <th>Prenatal Check Up</th>
+                <th>Tetanus Toxoid</th>
+            </tr>
+        </thead>
+        <tbody id="mctable">
+            
+        </tbody>
+        </table>
+    </div>
+    <h4 class="asize">H. Morbidity (w/n 1 whole year) Jan. 1 - Dec. 31</h4>
+        <div class="radios">
+        <table border="1" style="width: 70%; text-align: center;">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Type of Disease</th>
+                <th>Intervention <br>(Medication/Hospitalization)</th>
+            </tr>
+        </thead>
+        <tbody id="morbtable">
+            
+        </tbody>
+        </table>
+    </div>
+    <h4 class="asize">I. Mortality (w/n 1 whole year) Jan. 1 - Dec. 31</h4>
+        <div class="radios">
+        <table border="1" style="width: 70%; text-align: center;">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Cause of Death</th>
+            </tr>
+        </thead>
+        <tbody id="morttable">
+            
+        </tbody>
+        </table>
+    </div>
+    <div>
+        <br>
+        <hr>
+        <h2>V. SOURCES OF INFORMATION AND COMMUNICATION</h2>
+        <hr>
+        <br>
+        <div class="radios">
+        <table>
+            <p id="sources"></p>
+        </table>
+    </div>
+    <div>
+        <br>
+        <hr>
+        <h2>VI. CULTURAL PATTERNS AND BELIEFS</h2>
+        <hr>
+        <h4 class="asize">1. Common Cultural Beleifs with Regards to Marriage, Burial, Courtships, etc.</h4>
+        <div class="radios">
+        <table>
+            <p id="cultural"></p>
+        </table>
+    </div>
+    <h4 class="asize">2. Beliefs in Supernatural Beings, Herbolaryo, etc.</h4>
+        <div class="radios">
+        <table>
+            <p id="supernatural"></p>
+            
+        </table>
+    </div>
+    <h4 class="asize">3. Beliefs in illness/disease Condition.</h4>
+        <div class="radios">
+        <table>
+            <p id="illness"></p>
+        </table>
+    </div>
+    </div>
+</form>
+<footer>
+    <p>©DWCL-Association of Computer and Information Innovators 2022-2023</p>
+  </footer>
     <script src="view.js"></script>
   </body>
 </html>

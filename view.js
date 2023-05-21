@@ -220,4 +220,103 @@ contentSelect.addEventListener('change', (event) => {
         d.innerHTML = `<ul><li><b>${row.D}</b></li></ul>`;
       });
 
+      db.all(`SELECT * FROM ${tableName}_Method_of_Family_Planning`, [], (err, rows) => {
+        if (err) {
+          throw err;
+        }
+        const table = document.getElementById('mfptable');
+        rows.forEach((row) => {
+        let tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.Name}</td>
+                        <td>${row.Age}</td>
+                        <td>${row.Acceptor}</td>
+                        <td>${row.Method}</td>
+                        <td>${row.Types}</td>`;
+        table.appendChild(tr);
+        });
+        });
+
+        db.all(`SELECT * FROM ${tableName}_Immunization_Status`, [], (err, rows) => {
+          if (err) {
+            throw err;
+          }
+          const table = document.getElementById('istagtable');
+          rows.forEach((row) => {
+          let tr = document.createElement('tr');
+          tr.innerHTML = `<td>${row.Name}</td>
+                          <td>${row.Age}</td>
+                          <td>${row.BCG}</td>
+                          <td>${row.Hepa_B}</td>
+                          <td>${row.Penta}</td>
+                          <td>${row.PCV}</td>
+                          <td>${row.OPV}</td>
+                          <td>${row.IPV}</td>
+                          <td>${row.MMR}</td>
+                          <td>${row.Remarks}</td>`;
+          table.appendChild(tr);
+          });
+          });
+
+          db.all(`SELECT * FROM ${tableName}_Maternal_Care`, [], (err, rows) => {
+            if (err) {
+              throw err;
+            }
+            const table = document.getElementById('mctable');
+            rows.forEach((row) => {
+            let tr = document.createElement('tr');
+            tr.innerHTML = `<td>${row.Name}</td>
+                            <td>${row.No_of_Pregnancy}</td>
+                            <td>${row.Age_of_Gestation}</td>
+                            <td>${row.EDC}</td>
+                            <td>${row.Prenatal_Check_up}</td>
+                            <td>${row.Tetanus_Toxoid}</td>`;
+            table.appendChild(tr);
+            });
+            });
+
+            db.all(`SELECT * FROM ${tableName}_Morbidity`, [], (err, rows) => {
+              if (err) {
+                throw err;
+              }
+              const table = document.getElementById('morbtable');
+              rows.forEach((row) => {
+              let tr = document.createElement('tr');
+              tr.innerHTML = `<td>${row.Name}</td>
+                              <td>${row.Age}</td>
+                              <td>${row.Sex}</td>
+                              <td>${row.Type_of_Disease}</td>
+                              <td>${row.Intervention}</td>`;
+              table.appendChild(tr);
+              });
+              });
+
+              db.all(`SELECT * FROM ${tableName}_Mortality`, [], (err, rows) => {
+                if (err) {
+                  throw err;
+                }
+                const table = document.getElementById('morttable');
+                rows.forEach((row) => {
+                let tr = document.createElement('tr');
+                tr.innerHTML = `<td>${row.Name}</td>
+                                <td>${row.Age}</td>
+                                <td>${row.Sex}</td>
+                                <td>${row.Cause_of_Death}</td>`;
+                table.appendChild(tr);
+                });
+                });
+
+              var sources = document.getElementById('sources');
+              db.get(`SELECT * FROM ${tableName}_Sources_of_Information_and_Communication`, (err, row) => {
+                sources.innerHTML = `<ul><li><b>${row.Sources}</b></li></ul>`;
+              });
+
+              var cultural = document.getElementById('cultural');
+              var supernatural = document.getElementById('supernatural');
+              var illness = document.getElementById('illness');
+              db.get(`SELECT * FROM ${tableName}_Cultural_Patterns_and_Beliefs`, (err, row) => {
+                cultural.innerHTML = `<ul><li><b>${row.Common_Cultural_Beliefs}</b></li></ul>`;
+                supernatural.innerHTML = `<ul><li><b>${row.Beliefs_in_Supernatural_Beings}</b></li></ul>`;
+                illness.innerHTML = `<ul><li><b>${row.Beliefs_in_Illness_Disease_Condition}</b></li></ul>`;
+              });
+              
 });
