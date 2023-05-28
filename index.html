@@ -8,7 +8,13 @@
     <script src="index.js"></script>
 </head>
 <body>
-
+    <nav>
+        <ul class="navbar">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="index.html">Community Diagnostic Health Survey Tool</a></li>
+          <li><a href="view.html">View Database</a></li>
+        </ul>
+      </nav>
 <form >
     <div class="header">
         <img src="logo1.png" alt="image" width="85" height="85">
@@ -27,7 +33,7 @@
             <tr>
                 <td>
                     <label for="">Head of the Family:</label>
-                    <input type="text" class="input" id="head" >
+                    <input type="text" required="true" class="input" id="head" required="true" >
                 </td>
                 <td>
                     <label for="">No. of Family Member:</label>
@@ -309,12 +315,12 @@
             <table  class="radtable">
                 <tr>
                     <td>
-                        <input type="checkbox" name="B.1" value="Barangay Officials">Barangay Officials<br>                  
-                        <input type="checkbox" name="B.1" value="Religious leaders">Religious leaders<br>                      
-                        <input type="checkbox" name="B.1" value="elders">elders
+                        <input type="checkbox" name="B.1" value="Barangay Officials,">Barangay Officials<br>                  
+                        <input type="checkbox" name="B.1" value="Religious leaders,">Religious leaders<br>                      
+                        <input type="checkbox" name="B.1" value="elders,">elders
                     </td>
                     <td>
-                        <input type="checkbox" name="B.1" value="NGO">NGO <br>
+                        <input type="checkbox" name="B.1" value="NGO,">NGO <br>
                         <input type="checkbox" name="B.1" value="others">others, specify:
                         <input type="text" id="b1others"><br>
                     </td>
@@ -326,13 +332,13 @@
             <table  class="radtable">
                 <tr>
                     <td>
-                        <input type="checkbox" name="B.2" value="peace and order">peace and order<br>                  
-                        <input type="checkbox" name="B.2" value="sportfest">sportfest<br>                      
-                        <input type="checkbox" name="B.2" value="fumigation">fumigation
+                        <input type="checkbox" name="B.2" value="peace and order,">peace and order<br>                  
+                        <input type="checkbox" name="B.2" value="sportfest,">sportfest<br>                      
+                        <input type="checkbox" name="B.2" value="fumigation,">fumigation
                     </td>
                     <td>
-                        <input type="checkbox" name="B.2" value="oplan dalus">oplan dalus<br>
-                        <input type="checkbox" name="B.2" value="curfew">curfew<br>
+                        <input type="checkbox" name="B.2" value="oplan dalus,">oplan dalus<br>
+                        <input type="checkbox" name="B.2" value="curfew,">curfew<br>
                         <input type="checkbox" name="B.2" value="others">others, specify:
                         <input type="text" id="b2others"><br>
                     </td>
@@ -344,12 +350,12 @@
             <table  class="radtable">
                 <tr>
                     <td>
-                        <input type="checkbox" name="B.3" value="Brgy council">Brgy council<br>                  
-                        <input type="checkbox" name="B.3" value="Couples for Christ">Couples for Christ<br>                      
-                        <input type="checkbox" name="B.3" value="SK">SK
+                        <input type="checkbox" name="B.3" value="Brgy council,">Brgy council<br>                  
+                        <input type="checkbox" name="B.3" value="Couples for Christ,">Couples for Christ<br>                      
+                        <input type="checkbox" name="B.3" value="SK,">SK
                     </td>
                     <td>
-                        <input type="checkbox" name="B.3" value="Senior Citizens Club">Senior Citizens Club<br>
+                        <input type="checkbox" name="B.3" value="Senior Citizens Club,">Senior Citizens Club<br>
                         <input type="checkbox" name="B.3" value="others">others, specify:
                         <input type="text" id="b3others"><br>
                     </td>
@@ -361,11 +367,11 @@
             <table  class="radtable">
                 <tr>
                     <td>
-                        <input type="checkbox" name="B.4" value="Fiesta">Fiesta<br>                  
-                        <input type="checkbox" name="B.4" value="Thanksgiving">Thanksgiving<br>                      
+                        <input type="checkbox" name="B.4" value="Fiesta,">Fiesta<br>                  
+                        <input type="checkbox" name="B.4" value="Thanksgiving,">Thanksgiving<br>                      
                     </td>
                     <td>
-                        <input type="checkbox" name="B.4" value="Holy week">Holy week<br>
+                        <input type="checkbox" name="B.4" value="Holy week,">Holy week<br>
                         <input type="checkbox" name="B.4" value="others">others, specify:
                         <input type="text" id="b4others"><br>
                     </td>
@@ -459,15 +465,15 @@
             <table  class="radtable">
                 <tr>
                     <td>
-                        <input type="checkbox" name="C.7" value="Jar">Jar<br>                  
-                        <input type="checkbox" name="C.7" value="Plastic">Plastic<br>                      
-                        <input type="checkbox" name="C.7" value="Bottles">Bottles <br>
-                        <input type="checkbox" name="C.7" value="Water Dispenser">Water Dispenser
+                        <input type="checkbox" name="C.7" value="Jar,">Jar<br>                  
+                        <input type="checkbox" name="C.7" value="Plastic,">Plastic<br>                      
+                        <input type="checkbox" name="C.7" value="Bottles,">Bottles <br>
+                        <input type="checkbox" name="C.7" value="Water Dispenser,">Water Dispenser
                     </td>
                     <td>
-                        <input type="checkbox" name="C.7" value="Water Tank">Water Tank<br>                  
-                        <input type="checkbox" name="C.7" value="Drum">Drum<br>                  
-                        <input type="checkbox" name="C.7" value="others">others, specify:
+                        <input type="checkbox" name="C.7" value="Water Tank,">Water Tank<br>                  
+                        <input type="checkbox" name="C.7" value="Drum,">Drum<br>                  
+                        <input type="checkbox" name="C.7" value="others,">others, specify:
                         <input type="text" id="c7others">                     
                     </td>
                 </tr>
@@ -514,12 +520,12 @@
                         <input type="radio" name="C.9.2" value="Open">Open <br>
                         <input type="radio" name="C.9.2" value="None">None <br>
                         <label for="">Method of Disposal:</label><br>
-                        <input type="checkbox" name="C.9.3" value="Hog Feeding">Hog Feeding <br>
-                        <input type="checkbox" name="C.9.3" value="Open Dumping">Open Dumping <br>
-                        <input type="checkbox" name="C.9.3" value="Burial in Pit">Burial in Pit <br>
-                        <input type="checkbox" name="C.9.3" value="Composting">Composting <br>
-                        <input type="checkbox" name="C.9.3" value="Open Burning">Open Burning <br>
-                        <input type="checkbox" name="C.9.3" value="Garbage Collection">Garbage Collection <br>
+                        <input type="checkbox" name="C.9.3" value="Hog Feeding,">Hog Feeding <br>
+                        <input type="checkbox" name="C.9.3" value="Open Dumping,">Open Dumping <br>
+                        <input type="checkbox" name="C.9.3" value="Burial in Pit,">Burial in Pit <br>
+                        <input type="checkbox" name="C.9.3" value="Composting,">Composting <br>
+                        <input type="checkbox" name="C.9.3" value="Open Burning,">Open Burning <br>
+                        <input type="checkbox" name="C.9.3" value="Garbage Collection,">Garbage Collection <br>
                         <input type="checkbox" name="C.9.3" value="others">others, specify:
                         <input type="text" id="c9others">
                     </td>
@@ -532,16 +538,16 @@
                 <tr>
                     <td>
                         <input type="checkbox" name="C.10" value="None">None<br>                  
-                        <input type="checkbox" name="C.10" value="Overhung Latrine">Overhung Latrine<br>                      
-                        <input type="checkbox" name="C.10" value="Open Pit Privy">Open Pit Privy <br>
-                        <input type="checkbox" name="C.10" value="Closed Pit Privy">Closed Pit Privy <br>
-                        <input type="checkbox" name="C.10" value="Bored-Hole Latrine">Bored-Hole Latrine <br>
+                        <input type="checkbox" name="C.10" value="Overhung Latrine,">Overhung Latrine<br>                      
+                        <input type="checkbox" name="C.10" value="Open Pit Privy,">Open Pit Privy <br>
+                        <input type="checkbox" name="C.10" value="Closed Pit Privy,">Closed Pit Privy <br>
+                        <input type="checkbox" name="C.10" value="Bored-Hole Latrine,">Bored-Hole Latrine <br>
                     </td>
                     <td>
-                        <input type="checkbox" name="C.10" value="Pail System">Pail System<br>                  
-                        <input type="checkbox" name="C.10" value="Antipolo Type">Antipolo Type <br>
-                        <input type="checkbox" name="C.10" value="Water-Sealed Latrine">Water-Sealed Latrine <br>
-                        <input type="checkbox" name="C.10" value="Flush Type">Flush Type<br>                  
+                        <input type="checkbox" name="C.10" value="Pail System,">Pail System<br>                  
+                        <input type="checkbox" name="C.10" value="Antipolo Type,">Antipolo Type <br>
+                        <input type="checkbox" name="C.10" value="Water-Sealed Latrine,">Water-Sealed Latrine <br>
+                        <input type="checkbox" name="C.10" value="Flush Type,">Flush Type<br>                  
                         <input type="checkbox" name="C.10" value="others">others, specify:
                         <input type="text" id="c10others">                     
                     </td>
@@ -614,13 +620,13 @@
             <table  class="radtable">
                 <tr>
                     <td>
-                        <input type="checkbox" name="C.13" value="Flies">Flies<br>       
-                        <input type="checkbox" name="C.13" value="Roaches">Roaches<br>       
-                        <input type="checkbox" name="C.13" value="Termites (anay)">Termites (anay)                  
+                        <input type="checkbox" name="C.13" value="Flies,">Flies<br>       
+                        <input type="checkbox" name="C.13" value="Roaches,">Roaches<br>       
+                        <input type="checkbox" name="C.13" value="Termites (anay),">Termites (anay)                  
                     </td>
                     <td>
-                        <input type="checkbox" name="C.13" value="Mosquitoes">Mosquitoes<br>       
-                        <input type="checkbox" name="C.13" value="Rats">Rats<br>       
+                        <input type="checkbox" name="C.13" value="Mosquitoes,">Mosquitoes<br>       
+                        <input type="checkbox" name="C.13" value="Rats,">Rats<br>       
                         <input type="checkbox" name="C.13" value="others">others, specify:
                         <input type="text" id="c13others">                 
                     </td>
@@ -628,13 +634,13 @@
                 <tr>
                     <td>
                         <label for="">Ways in Controlling Vectors</label><br>
-                        <input type="checkbox" name="C.13.1" value="Fumigation">Fumigation<br>       
-                        <input type="checkbox" name="C.13.1" value="Kulambo">Kulambo<br>       
-                        <input type="checkbox" name="C.13.1" value="Mouse Trap">Mouse Trap<br>       
-                        <input type="checkbox" name="C.13.1" value="Fly Traps">Fly Traps<br>       
+                        <input type="checkbox" name="C.13.1" value="Fumigation,">Fumigation<br>       
+                        <input type="checkbox" name="C.13.1" value="Kulambo,">Kulambo<br>       
+                        <input type="checkbox" name="C.13.1" value="Mouse Trap,">Mouse Trap<br>       
+                        <input type="checkbox" name="C.13.1" value="Fly Traps,">Fly Traps<br>       
                     </td>
                     <td>
-                        <input type="checkbox" name="C.13.1" value="Insecticides">Insecticides<br>       
+                        <input type="checkbox" name="C.13.1" value="Insecticides,">Insecticides<br>       
                         <input type="checkbox" name="C.13.1" value="None">None<br>       
                         <input type="checkbox" name="C.13.1" value="others">others, specify:
                         <input type="text" id="c131others">       
@@ -868,29 +874,29 @@
                     <td><input type="text" id="bcg11"></td>
                     <td><input type="text" id="hepab11"></td>
                     <td>
-                        <input type="checkbox" name="penta1" value="1">1 
-                        <input type="checkbox" name="penta1" value="2">2 
-                        <input type="checkbox" name="penta1" value="3">3
+                        <input type="checkbox" name="penta1" value="1,">1 
+                        <input type="checkbox" name="penta1" value="2,">2 
+                        <input type="checkbox" name="penta1" value="3,">3
                     </td>
                     <td>
-                        <input type="checkbox" name="pcv1" value="1">1 
-                        <input type="checkbox" name="pcv1" value="2">2 
-                        <input type="checkbox" name="pcv1" value="3">3
+                        <input type="checkbox" name="pcv1" value="1,">1 
+                        <input type="checkbox" name="pcv1" value="2,">2 
+                        <input type="checkbox" name="pcv1" value="3,">3
                     </td>
                     <td>
-                        <input type="checkbox" name="opv1" value="1">1 
-                        <input type="checkbox" name="opv1" value="2">2 
-                        <input type="checkbox" name="opv1" value="3">3
+                        <input type="checkbox" name="opv1" value="1,">1 
+                        <input type="checkbox" name="opv1" value="2,">2 
+                        <input type="checkbox" name="opv1" value="3,">3
                     </td>
                     <td><input type="text" id="ipv1"></td>
                     <td>
-                        <input type="checkbox" name="mmr1" value="1">1 
-                        <input type="checkbox" name="mmr1" value="2">2 
+                        <input type="checkbox" name="mmr1" value="1,">1 
+                        <input type="checkbox" name="mmr1" value="2,">2 
                     </td>
                     <td>
-                        <input type="checkbox" name="remarks1" value="Inc">Inc 
-                        <input type="checkbox" name="remarks1" value="CIC">CIC
-                        <input type="checkbox" name="remarks1" value="FIC">FIC
+                        <input type="checkbox" name="remarks1" value="Inc,">Inc 
+                        <input type="checkbox" name="remarks1" value="CIC,">CIC
+                        <input type="checkbox" name="remarks1" value="FIC,">FIC
                     </td>
                     
                     <td>
@@ -926,11 +932,11 @@
                     <input type="radio" name="G1" value="No">No 
                 </td>
                 <td>
-                    <input type="checkbox" name="tt1" value="TT1">TT1 
-                    <input type="checkbox" name="tt1" value="TT2">TT2 
-                    <input type="checkbox" name="tt1" value="TT3">TT3
-                    <input type="checkbox" name="tt1" value="TT4">TT4
-                    <input type="checkbox" name="tt1" value="TT5">TT5
+                    <input type="checkbox" name="tt1" value="TT1,">TT1 
+                    <input type="checkbox" name="tt1" value="TT2,">TT2 
+                    <input type="checkbox" name="tt1" value="TT3,">TT3
+                    <input type="checkbox" name="tt1" value="TT4,">TT4
+                    <input type="checkbox" name="tt1" value="TT5,">TT5
                 </td>
                 <td>
                     <input type="button" value="Add" onclick="addnew4()">
@@ -1004,11 +1010,11 @@
         <table>
             <tr>
                 <td>
-                <input type="checkbox" value="Radio" name='sources'>Radio <br>
-                <input type="checkbox" value="TV" name='sources'>TV <br>
-                <input type="checkbox" value="Cellular Phone" name='sources'>Cellular Phone <br>
-                <input type="checkbox" value="Newspaper" name='sources'>Newspaper<br>
-                <input type="checkbox" value="Telephone" name='sources'>Telephone<br>
+                <input type="checkbox" value="Radio," name='sources'>Radio <br>
+                <input type="checkbox" value="TV," name='sources'>TV <br>
+                <input type="checkbox" value="Cellular Phone," name='sources'>Cellular Phone <br>
+                <input type="checkbox" value="Newspaper," name='sources'>Newspaper<br>
+                <input type="checkbox" value="Telephone," name='sources'>Telephone<br>
                 <input type="checkbox" value="others" name='sources'>Others, specify: 
                 <input type="text" id="vothers">
             </td>

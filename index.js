@@ -93,7 +93,7 @@ function btnbtn() {
   
 
   db.run(
-	`CREATE TABLE IF NOT EXISTS "${head}_Physical/Geographical_Data" (
+	`CREATE TABLE IF NOT EXISTS "${head}_PhysicalGeographical_Data" (
 	  Land_Area TEXT,
 	  Boundary_North TEXT,
 	  Boundary_West TEXT,
@@ -108,12 +108,12 @@ function btnbtn() {
 	  Natural_Resources TEXT
 	)`,
 	function (err) {
-		if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_Physical/Geographical_Data already exists`) || err.message.includes(`database ${head}.db already exists`))) {
-		  console.log(`${head}_Physical/Geographical_Data already exists`);
+		if (err && err.code === 'SQLITE_ERROR' && (err.message.includes(`table ${head}_PhysicalGeographical_Data already exists`) || err.message.includes(`database ${head}.db already exists`))) {
+		  console.log(`${head}_PhysicalGeographical_Data already exists`);
 		} else if (err) {
 		  console.log(err);
 		} else {
-		  db.run(`INSERT INTO "${head}_Physical/Geographical_Data" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
+		  db.run(`INSERT INTO "${head}_PhysicalGeographical_Data" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
 		  [lanare, north, west, east, south, nscb, dslbh, dbtp, dbnh, faci, trans, natres], function (err) {
 			if (err) {
 			  console.log(err);
@@ -234,13 +234,13 @@ function btnbtn() {
 	var A1 = "";
 	var A2 = "";
 	var A3 = "";
-	var A4 = `${a4food} food \n
-			  ${a4health} health \n
-			  ${a4houserent} house rent \n
-			  ${a4education} education \n
-			  ${a4electric} electric bill \n
-			  ${a4clothing} clothing \n
-			  ${a4waterbill} waterbill \n
+	var A4 = `${a4food} food,
+			  ${a4health} health,
+			  ${a4houserent} house rent,
+			  ${a4education} education,
+			  ${a4electric} electric bill,
+			  ${a4clothing} clothing,
+			  ${a4waterbill} waterbill,
 			  ${a4others}`;
 	var A5 = "";
 	var B1 = "";
@@ -1337,6 +1337,8 @@ function btnbtn() {
 		  }
 		}
 	  );
+
+	  confirm("Database Created!");
 }
 
   function addnew1() { 
@@ -1509,4 +1511,8 @@ function deleteit6(){
 			if (rowCount > 2) {
 				table.deleteRow(rowCount - 1);
 			}
+}
+
+function btngo(){
+	location.href = 'view.html';
 }

@@ -1,6 +1,7 @@
 body {
-    background-color: rgb(25, 32, 32);
-    color: gainsboro;
+    background: linear-gradient(to bottom, #6C757D, #D0D0D0);
+    color:black;
+    background-size: cover;
 }
 
 .header {
@@ -142,3 +143,26 @@ input[type="checkbox"] {
     width: 80%;
 }
 
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+  }
+
+  ul.navbar li {
+    float: left;
+  }
+
+  ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  ul.navbar li a:hover {
+    background-color: #111;
+  }
