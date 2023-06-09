@@ -1,10 +1,12 @@
 body {
     background: linear-gradient(to bottom, #6C757D, #D0D0D0);
-    color:black;
     background-size: cover;
 }
+
 .header {
     text-align: center;
+    margin-top: 50px;
+
 }
 
 .sheader {
@@ -21,12 +23,14 @@ body {
     width: 650px;
     height: 25px;
     font-size: 25px;
+
 }
 
 .btnnext {
     width: 90px;
     height: 50px;
     font-size: 20px;
+
 }
 
 .captable {
@@ -85,7 +89,7 @@ body {
 }
 
 .footwidth {
-    
+
     width: 100%;
 }
 
@@ -135,30 +139,75 @@ input[type="checkbox"] {
     width: 100%;
 }
 
-#istagtable input[type="text"]{
+#istagtable input[type="text"] {
     width: 80%;
 }
 
-ul.navbar {
+/* .navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background: #ddd;
+    color: rgb(150, 148, 148);
+} */
+
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #333;
     overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
-
-  ul.navbar li {
+  
+  li {
     float: left;
   }
-
-  ul.navbar li a {
+  
+  li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
+/* ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+}
 
-  ul.navbar li a:hover {
+ul.navbar li {
+    float: left;
+}
+
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.navbar li a:hover {
     background-color: #111;
-  }
+} */
